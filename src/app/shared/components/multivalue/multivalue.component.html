@@ -6,7 +6,7 @@
       <button *ngIf="elements().length"
         class="bg-white hover:bg-slate-100 rounded-full shadow p-1 border transition-all ease-in-out hover:scale-110"
         title="Clear all elements" (click)="clearElements()">
-        <img class="h-5 pointer-events-none" src="assets/icons-svg/close.svg" alt="close">
+        <img class="h-5 pointer-events-none" src="assets/icons/close.svg" alt="close">
       </button>
     </li>
     <li [@zoomOut] [@zoomIn] *ngFor="let element of elements(); let i = index"
@@ -16,7 +16,7 @@
       }">
       <span class="flex-1 ml-2 text-sm">{{ element }}</span>
       <button *ngIf="removable" class="bg-white rounded-full p-1" (click)="removeElement(i)">
-        <img class="h-3" src="assets/icons-svg/close.svg" alt="close">
+        <img class="h-3" src="assets/icons/close.svg" alt="close">
       </button>
     </li>
   </ul>

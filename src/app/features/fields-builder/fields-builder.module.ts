@@ -39,7 +39,7 @@ import { FieldTypesEffects } from './store/types/effects';
     EffectsModule.forFeature([
       FieldsEffects,
       SelectedFieldEffects,
-      FieldTypesEffects,
+      FieldTypesEffects
     ]),
   ],
   declarations: [
