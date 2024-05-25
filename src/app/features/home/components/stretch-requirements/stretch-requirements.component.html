@@ -1,0 +1,13 @@
+<app-card>
+  <app-card-header>
+    <ng-container label>Nice to have</ng-container>
+    <ng-container title>Stretch Requirements / Tasks</ng-container>
+    You can also feel free to consider your own ideas for extension if you have time to complete additional
+    requirements. These are only suggestions.
+  </app-card-header>
+  <div class="mt-6">
+    <div class="flex flex-col gap-y-4">
+      <app-requirement *ngFor="let requirement of requirements" [requirement]="requirement" />
+    </div>
+  </div>
+</app-card>

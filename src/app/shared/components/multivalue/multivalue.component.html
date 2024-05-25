@@ -1,0 +1,32 @@
+<div class="bg-white border border-slate-400 rounded pt-4 pb-10 px-4 relative">
+  <ul class="flex flex-wrap gap-2 items-center" (click)="focusInput()" (keydown.enter)="focusInput()">
+    <li class="flex w-full gap-2">
+      <div #typeDiv contenteditable="true" (input)="onInput($event)" (keydown)="onKeyDownEnter($event)"
+        class="editable-div" placeholder="Type here..."></div>
+      <button *ngIf="elements().length"
+        class="bg-white hover:bg-slate-100 rounded-full shadow p-1 border transition-all ease-in-out hover:scale-110"
+        title="Clear all elements" (click)="clearElements()">
+        <img class="h-5 pointer-events-none" src="assets/icons-svg/close.svg" alt="close">
+      </button>
+    </li>
+    <li [@zoomOut] [@zoomIn] *ngFor="let element of elements(); let i = index"
+      class="bg-slate-200 group text-slate-600 rounded-2xl p-1 hover:bg-slate-500 hover:text-white transition-all ease-in-out flex gap-2 items-start"
+      [ngClass]="{
+        'cursor-pointer': removable
+      }">
+      <span class="flex-1 ml-2 text-sm">{{ element }}</span>
+      <button *ngIf="removable" class="bg-white rounded-full p-1" (click)="removeElement(i)">
+        <img class="h-3" src="assets/icons-svg/close.svg" alt="close">
+      </button>
+    </li>
+  </ul>
+  <span [@zoomIn] class="absolute bottom-2 left-4 text-sm text-teal-600 font-semibold"
+    *ngIf="elements().length === maxElements">
+    Oops! You reach the maximum possibles elements
+  </span>
+  <span class="absolute bottom-2 right-4 text-sm text-slate-400">{{elements().length}} / {{maxElements}}</span>
+</div>
+<span [@zoomIn] *ngIf="!maxLengthError()" class="text-sm text-slate-500">Press Enter to add elements. You can add
+  severals elements separated by comma.</span>
+<span [@zoomIn] *ngIf="maxLengthError()" class="text-red-500 text-sm">The max length of one element is
+  <b>{{maxLength}}</b></span>
