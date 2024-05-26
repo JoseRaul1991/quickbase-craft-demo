@@ -18,6 +18,7 @@ export const initialState: FieldsState = {
     loading: true,
   },
   create: {},
+  update: {},
 };
 
 export const reducer = createReducer(

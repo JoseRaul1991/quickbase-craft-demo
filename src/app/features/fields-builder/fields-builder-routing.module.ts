@@ -38,7 +38,7 @@ const routes: Routes = [
         component: FieldCreateByTypeComponent,
       },
       {
-        path: 'update/:id',
+        path: 'update/:type/:id',
         component: FieldEditComponent,
       },
     ],

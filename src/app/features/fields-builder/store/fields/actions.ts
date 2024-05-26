@@ -6,7 +6,12 @@ import {
   saveCreate,
 } from './create/actions';
 import { remove, removeSucess, removeError } from './delete/actions';
-import { update, updateSuccess, updateError } from './update/actions';
+import {
+  update,
+  updateSuccess,
+  updateError,
+  saveUpdate,
+} from './update/actions';
 
 export const FieldsActions = {
   fetch,
@@ -16,6 +21,7 @@ export const FieldsActions = {
   create,
   createSuccess,
   createError,
+  saveUpdate,
   update,
   updateSuccess,
   updateError,

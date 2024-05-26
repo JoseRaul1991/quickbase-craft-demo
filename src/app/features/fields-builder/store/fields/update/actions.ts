@@ -1,6 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 import { Field } from '~app/features/fields-builder/models/field';
 
+export const saveUpdate = createAction(
+  '[Fields] Save Update',
+  props<{ data: Field }>()
+);
+
 export const update = createAction(
   '[Fields] Update Field',
   props<{ data: Field }>()

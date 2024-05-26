@@ -23,7 +23,7 @@ import { BackToListComponent } from './components/back-to-list/back-to-list.comp
 import { FieldsEffects } from './store/fields/effects';
 import { SelectedFieldEffects } from './store/selected/effects';
 import { FieldTypesEffects } from './store/types/effects';
-import { MultiSelectComponent } from './components/fields/multi-select/multi-select.component';
+import { CreateMultiSelectComponent } from './components/fields/multi-select/multi-select-create.component';
 import { FieldCreateCardComponent } from './components/field-create-card/field-create-card.component';
 import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
 import { TypeNoSupportedComponent } from './components/type-no-supported/type-no-supported.component';
@@ -31,6 +31,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubmitButtonComponent } from '~app/shared/components/submit-button/submit-button.component';
 import { PreviewComponent } from './components/fields/multi-select/preview/preview.component';
+import { UpdateMultiSelectComponent } from './components/fields/multi-select/multi-select-update.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import { PreviewComponent } from './components/fields/multi-select/preview/previ
     ToYesOrNoPipe,
     EmptyListComponent,
     BackToListComponent,
-    MultiSelectComponent,
+    CreateMultiSelectComponent,
+    UpdateMultiSelectComponent,
     FieldCreateCardComponent,
     FieldCreateByTypeComponent,
     TypeNoSupportedComponent,

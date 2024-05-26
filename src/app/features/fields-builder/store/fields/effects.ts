@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { createEffect, ofType } from '@ngrx/effects';
-import { catchError, exhaustMap, map, of, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { FieldsActions } from './actions';
 import { BaseFieldsEffects } from '../effects';
 import { Router } from '@angular/router';
@@ -9,18 +9,23 @@ import { FIELDS_BUILDER_ROUTE } from '~app/core/constants';
 import { FieldsCreateEffects } from './create/effects';
 import { FieldsDeleteEffects } from './delete/effects';
 import { FieldsFetchEffects } from './fetch/effects';
+import { FieldsUpdateEffects } from './update/effects';
 
 @Injectable()
 export class FieldsEffects extends BaseFieldsEffects {
   private router = inject(Router);
   private store = inject(Store);
 
-  private fieldsCreateEffects = new FieldsCreateEffects();
+  private createEffects = new FieldsCreateEffects();
+  private updateEffects = new FieldsUpdateEffects();
 
   fetch$ = new FieldsFetchEffects().fetch$;
-  create$ = this.fieldsCreateEffects.create$;
-  saveCreate$ = this.fieldsCreateEffects.saveCreate$;
+  create$ = this.createEffects.create$;
+  update$ = this.updateEffects.update$;
   delete$ = new FieldsDeleteEffects().delete$;
+
+  saveCreate$ = this.createEffects.saveCreate$;
+  saveUpdate$ = this.updateEffects.saveUpdate$;
 
   refreshList$ = createEffect(
     () =>

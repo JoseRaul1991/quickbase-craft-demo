@@ -18,7 +18,8 @@ export interface FieldsState {
     loading?: boolean;
     error?: any;
   };
-  update?: {
+  update: {
+    data?: Field;
     loading?: boolean;
     error?: any;
   };
