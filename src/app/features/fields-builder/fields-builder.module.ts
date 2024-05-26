@@ -23,7 +23,7 @@ import { BackToListComponent } from './components/back-to-list/back-to-list.comp
 import { FieldsEffects } from './store/fields/effects';
 import { SelectedFieldEffects } from './store/selected/effects';
 import { FieldTypesEffects } from './store/types/effects';
-import { MultiSelectComponent } from './components/multi-select/multi-select.component';
+import { MultiSelectComponent } from './components/fields/multi-select/multi-select.component';
 import { FieldCreateCardComponent } from './components/field-create-card/field-create-card.component';
 import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
 import { TypeNoSupportedComponent } from './components/type-no-supported/type-no-supported.component';

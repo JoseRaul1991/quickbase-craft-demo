@@ -16,4 +16,4 @@ export interface MultiselectField extends BaseField {
 }
 
 export type Field = MultiselectField;
-export type FieldCreate = Omit<MultiselectField, 'id'>;
+export type FieldCreate = Omit<Field, 'id'>;

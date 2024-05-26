@@ -7,14 +7,17 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { OrderOptions, sortByOrderOptions } from '../../models/order-options';
+import {
+  OrderOptions,
+  sortByOrderOptions,
+} from '../../../models/order-options';
 import { zoomIn } from '~app/core/animations';
 import { Store } from '@ngrx/store';
-import { FieldsActions } from '../../store/fields/actions';
-import { FieldTypeDefinition } from '../../models/field-types';
+import { FieldsActions } from '../../../store/fields/actions';
+import { FieldTypeDefinition } from '../../../models/field-types';
 import { LocalStorageService } from '~app/core/services/local-storage.service';
 import { merge } from 'rxjs';
-import { selectCreateLoading } from '../../store/fields/create/selectors';
+import { selectCreateLoading } from '../../../store/fields/create/selectors';
 
 @Component({
   selector: 'app-multi-select',
@@ -125,6 +128,7 @@ export class MultiSelectComponent implements OnInit {
       isRequired: false,
       defaultValue: '',
       order: OrderOptions.AlphabeticalAZ,
+      type: FieldTypeDefinition.Multiselect,
     });
   }
 

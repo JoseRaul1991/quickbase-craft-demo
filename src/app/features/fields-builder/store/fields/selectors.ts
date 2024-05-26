@@ -1,18 +1,17 @@
-import { createSelector } from '@ngrx/store';
-import { selectAll } from '../selectors';
-import { FieldsState } from '~app/features/fields-builder/models/state';
+import { selectCreateError, selectCreateLoading } from './create/selectors';
+import { selectDeleteLoading, selectDeleteError } from './delete/selectors';
+import {
+  selectFields,
+  selectFieldsError,
+  selectFieldsLoading,
+} from './fetch/selectors';
 
-export const selectFields = createSelector(
-  selectAll,
-  (state: FieldsState) => state.fields.data
-);
-
-export const selectFieldsLoading = createSelector(
-  selectAll,
-  (state: FieldsState) => state.fields.loading
-);
-
-export const selectFieldsError = createSelector(
-  selectAll,
-  (state: FieldsState) => state.fields.error
-);
+export {
+  selectFields,
+  selectFieldsLoading,
+  selectFieldsError,
+  selectCreateLoading,
+  selectCreateError,
+  selectDeleteLoading,
+  selectDeleteError,
+};

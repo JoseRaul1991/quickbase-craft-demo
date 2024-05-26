@@ -3,13 +3,13 @@ import { Store } from '@ngrx/store';
 import { FieldsStore } from '../../store/reducer';
 import { zoomIn } from '~app/core/animations';
 import { Field } from '../../models/field';
+import { FieldsActions } from '../../store/fields/actions';
+import { selectDeleteLoading } from '../../store/fields/delete/selectors';
 import {
   selectFields,
   selectFieldsError,
   selectFieldsLoading,
-} from '../../store/fields/selectors';
-import { FieldsActions } from '../../store/fields/actions';
-import { selectDeleteLoading } from '../../store/fields/delete/selectors';
+} from '../../store/fields/fetch/selectors';
 
 @Component({
   selector: 'app-fields-list',

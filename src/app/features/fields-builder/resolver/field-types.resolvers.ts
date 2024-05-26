@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { FieldsStore } from '../store/reducer';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { FieldTypesActions } from '../store/types/actions';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { selectFieldTypes } from '../store/types/selectors';
