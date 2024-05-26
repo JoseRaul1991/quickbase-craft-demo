@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FieldsBuilderComponent } from './fields-builder.component';
-import { FieldsBuilderRoutingModule } from './fields-builder-routing.module';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import {
   PageHeaderComponent,
   PageBodyComponent,
@@ -9,61 +12,58 @@ import {
   LoadingComponent,
   ErrorComponent,
   MultivalueComponent,
+  SubmitButtonComponent,
 } from '~shared/components';
-import { FieldsListComponent } from './pages/fields-list/fields-list.component';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { FIELDS_FEATURE_KEY, reducer } from './store/reducer';
-import { FieldCreateComponent } from './pages/field-create/field-create.component';
-import { FieldEditComponent } from './pages/field-edit/field-edit.component';
-import { ToYesOrNoPipe } from './pipes/to-yes-or-no.pipe';
-import { EmptyListComponent } from './components/empty-list/empty-list.component';
-import { RouterModule } from '@angular/router';
-import { BackToListComponent } from './components/back-to-list/back-to-list.component';
+import {
+  EmptyListComponent,
+  BackToListComponent,
+  CreateMultiSelectComponent,
+  UpdateMultiSelectComponent,
+  FieldCreateCardComponent,
+  TypeNoSupportedComponent,
+  PreviewComponent,
+  PreviewUpdateComponent,
+} from './components';
+import { FieldsBuilderRoutingModule } from './fields-builder-routing.module';
+import { FieldsBuilderComponent } from './fields-builder.component';
+import {
+  FieldsListComponent,
+  FieldCreateComponent,
+  FieldEditComponent,
+  FieldCreateByTypeComponent,
+} from './pages';
+import { ToYesOrNoPipe } from './pipes';
 import { FieldsEffects } from './store/fields/effects';
-import { SelectedFieldEffects } from './store/selected/effects';
+import { FIELDS_FEATURE_KEY, reducer } from './store/reducer';
 import { FieldTypesEffects } from './store/types/effects';
-import { CreateMultiSelectComponent } from './components/fields/multi-select/multi-select-create.component';
-import { FieldCreateCardComponent } from './components/field-create-card/field-create-card.component';
-import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
-import { TypeNoSupportedComponent } from './components/type-no-supported/type-no-supported.component';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SubmitButtonComponent } from '~app/shared/components/submit-button/submit-button.component';
-import { PreviewComponent } from './components/fields/multi-select/preview/preview.component';
-import { UpdateMultiSelectComponent } from './components/fields/multi-select/multi-select-update.component';
-import { PreviewUpdateComponent } from './components/fields/multi-select/preview/preview-update.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FieldsBuilderRoutingModule,
+    RouterModule,
+    StoreModule.forFeature(FIELDS_FEATURE_KEY, reducer),
+    EffectsModule.forFeature([FieldsEffects, FieldTypesEffects]),
+    NgSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+
+    // Shared Components
     PageHeaderComponent,
     PageBodyComponent,
     CardComponent,
     LoadingComponent,
     ErrorComponent,
     MultivalueComponent,
-    RouterModule,
-    StoreModule.forFeature(FIELDS_FEATURE_KEY, reducer),
-    EffectsModule.forFeature([
-      FieldsEffects,
-      SelectedFieldEffects,
-      FieldTypesEffects,
-    ]),
-
     MultivalueComponent,
     SubmitButtonComponent,
-    NgSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
   ],
   declarations: [
+    // Components
     FieldsBuilderComponent,
     FieldsListComponent,
     FieldCreateComponent,
     FieldEditComponent,
-    ToYesOrNoPipe,
     EmptyListComponent,
     BackToListComponent,
     CreateMultiSelectComponent,
@@ -73,6 +73,9 @@ import { PreviewUpdateComponent } from './components/fields/multi-select/preview
     TypeNoSupportedComponent,
     PreviewComponent,
     PreviewUpdateComponent,
+
+    // Pipes
+    ToYesOrNoPipe,
   ],
 })
 export class FieldsBuilderModule {}

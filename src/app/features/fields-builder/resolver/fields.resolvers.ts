@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { FieldsStore } from '../store/reducer';
-import { FieldsActions } from '../store/fields/actions';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { Store } from '@ngrx/store';
+import { FieldsActions } from '../store/fields/actions';
 import { selectFields } from '../store/fields/selectors';
+import { FieldsStore } from '../store/reducer';
 
 @Injectable({
   providedIn: 'root',

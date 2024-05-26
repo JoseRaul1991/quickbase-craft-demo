@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FieldType } from '../../models/field-types';
+import { FieldType } from '../../models';
 import { zoomIn } from '~app/core/animations';
 
 @Component({

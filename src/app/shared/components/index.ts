@@ -6,3 +6,4 @@ export * from './loading/loading.component';
 export * from './error/error.component';
 export * from './checkmark/checkmark.component';
 export * from './multivalue/multivalue.component';
+export * from './submit-button/submit-button.component';

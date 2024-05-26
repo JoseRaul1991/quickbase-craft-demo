@@ -8,11 +8,6 @@ export interface FieldsState {
     loading: boolean;
     error?: any;
   };
-  selected: {
-    data?: Field;
-    loading: boolean;
-    error?: any;
-  };
   create: {
     data?: Nullable<FieldCreate>;
     loading?: boolean;

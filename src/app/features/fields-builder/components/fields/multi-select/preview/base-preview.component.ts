@@ -1,14 +1,15 @@
-import { Directive, Signal, computed, inject } from '@angular/core';
+import { Directive, inject, Signal, computed } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Field, FieldCreate } from '~app/features/fields-builder/models/field';
+import { Nullable } from '~app/core/types';
 import {
-  OrderOptions,
   sortByOrderOptions,
-} from '~app/features/fields-builder/models/order-options';
+  OrderOptions,
+  Field,
+  FieldCreate,
+} from '~app/features/fields-builder/models';
 import { FieldsStore } from '~app/features/fields-builder/store/reducer';
-import { Nullable } from '~app/core/types/nullable';
 
-Directive();
+@Directive()
 export abstract class BasePreviewComponent {
   protected store = inject(Store<FieldsStore>);
 

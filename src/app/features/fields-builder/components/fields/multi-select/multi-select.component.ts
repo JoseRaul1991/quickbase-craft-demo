@@ -20,7 +20,6 @@ import {
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { map, merge } from 'rxjs';
-import { zoomIn } from '~app/core/animations';
 import {
   MAX_CHOICES,
   MAX_CHOICE_LENGTH,

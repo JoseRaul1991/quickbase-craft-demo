@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { FieldBuilderService } from '../services/field-builder.service';
+import { FieldBuilderService } from '../services';
 
 @Injectable({
   providedIn: 'root',

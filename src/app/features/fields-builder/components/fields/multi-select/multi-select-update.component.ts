@@ -1,13 +1,12 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
-import { zoomIn } from '~app/core/animations';
-import { FieldsActions } from '../../../store/fields/actions';
-import { BaseMultiSelectComponent } from './multi-select.component';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, inject } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
+import { zoomIn } from '~app/core/animations';
+import { FormAction, Field } from '~app/features/fields-builder/models';
+import { FieldsActions } from '~app/features/fields-builder/store/fields/actions';
 import { selectUpdateSavedForm } from '~app/features/fields-builder/store/fields/selectors';
-import { Field } from '~app/features/fields-builder/models/field';
-import { FormAction } from '~app/features/fields-builder/models/form-action';
+import { BaseMultiSelectComponent } from './multi-select.component';
 
 @Component({
   selector: 'app-update-multi-select',

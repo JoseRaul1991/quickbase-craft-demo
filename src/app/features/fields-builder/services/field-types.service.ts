@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '~env/environment';
-import { FieldType } from '../models/field-types';
+import { FieldType } from '../models';
 
 @Injectable({
   providedIn: 'root',

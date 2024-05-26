@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderOptions } from '../../../models/order-options';
-import { zoomIn } from '~app/core/animations';
-import { FieldsActions } from '../../../store/fields/actions';
-import { FieldTypeDefinition } from '../../../models/field-types';
-import { BaseMultiSelectComponent } from './multi-select.component';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { zoomIn } from '~app/core/animations';
+import {
+  FormAction,
+  OrderOptions,
+  FieldTypeDefinition,
+} from '~app/features/fields-builder/models';
+import { FieldsActions } from '~app/features/fields-builder/store/fields/actions';
 import { selectCreateSavedForm } from '~app/features/fields-builder/store/fields/selectors';
-import { FormAction } from '~app/features/fields-builder/models/form-action';
+import { BaseMultiSelectComponent } from './multi-select.component';
 
 @Component({
   selector: 'app-create-multi-select',

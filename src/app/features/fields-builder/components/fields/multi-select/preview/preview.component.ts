@@ -1,10 +1,8 @@
-import { Component, Input, computed, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Store } from '@ngrx/store';
 import { tap } from 'rxjs';
 import { zoomIn } from '~app/core/animations';
-import { selectCreateSavedForm } from '~app/features/fields-builder/store/fields/create/selectors';
-import { FieldsStore } from '~app/features/fields-builder/store/reducer';
+import { selectCreateSavedForm } from '~app/features/fields-builder/store/fields/selectors';
 import { BasePreviewComponent } from './base-preview.component';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Field, FieldCreate } from '../models/field';
+import { Field, FieldCreate } from '../models';
 import { environment } from '~env/environment';
 
 @Injectable({

@@ -1,21 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { FieldsStore } from '../../store/reducer';
 import { zoomIn } from '~app/core/animations';
-import { Field } from '../../models/field';
+import { Field } from '../../models';
 import { FieldsActions } from '../../store/fields/actions';
-import { selectDeleteLoading } from '../../store/fields/delete/selectors';
 import {
   selectFields,
-  selectFieldsError,
   selectFieldsLoading,
-} from '../../store/fields/fetch/selectors';
+  selectFieldsError,
+  selectDeleteLoading,
+} from '../../store/fields/selectors';
+import { FieldsStore } from '../../store/reducer';
 
 @Component({
   selector: 'app-fields-list',
   templateUrl: './fields-list.component.html',
   styleUrls: ['./fields-list.component.scss'],
   animations: [zoomIn],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FieldsListComponent {
   private store = inject(Store<FieldsStore>);

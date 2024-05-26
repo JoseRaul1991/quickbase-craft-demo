@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { FieldsStore } from '../store/reducer';
 import { FieldTypesActions } from '../store/types/actions';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { selectFieldTypes } from '../store/types/selectors';
 
 @Injectable({

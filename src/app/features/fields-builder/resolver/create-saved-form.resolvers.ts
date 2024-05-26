@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { FieldsStore } from '../store/reducer';
+import { LocalStorageService } from '~app/core/services';
 import { FieldsActions } from '../store/fields/actions';
-import { LocalStorageService } from '~app/core/services/local-storage.service';
 import { CREATE_FORM_MULTI_SELECT_SUFIX } from '../store/fields/create/effects';
+import { FieldsStore } from '../store/reducer';
 
 @Injectable({
   providedIn: 'root',

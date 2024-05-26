@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { FieldsStore } from '../store/reducer';
-import { FieldsActions } from '../store/fields/actions';
-import { LocalStorageService } from '~app/core/services/local-storage.service';
-import { UPDATE_FORM_MULTI_SELECT_SUFIX } from '../store/fields/update/effects';
 import { ActivatedRouteSnapshot } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { LocalStorageService } from '~core/services';
+import { FieldsActions } from '../store/fields/actions';
+import { UPDATE_FORM_MULTI_SELECT_SUFIX } from '../store/fields/update/effects';
+import { FieldsStore } from '../store/reducer';
 
 @Injectable({
   providedIn: 'root',
