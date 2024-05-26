@@ -1,4 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import {
   AbstractControl,
   FormBuilder,
@@ -12,6 +13,8 @@ import { Store } from '@ngrx/store';
 import { FieldsActions } from '../../store/fields/actions';
 import { FieldTypeDefinition } from '../../models/field-types';
 import { selectCreateLoading } from '../../store/fields/selectors';
+import { LocalStorageService } from '~app/core/services/local-storage.service';
+import { concat, concatMap, merge } from 'rxjs';
 
 @Component({
   selector: 'app-multi-select',
@@ -19,8 +22,9 @@ import { selectCreateLoading } from '../../store/fields/selectors';
   styleUrls: ['./multi-select.component.scss'],
   animations: [zoomIn],
 })
-export class MultiSelectComponent {
+export class MultiSelectComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
+  private localStorageService = inject(LocalStorageService);
   private store = inject(Store);
 
   readonly ORDER_OPTIONS_VALUES = Object.values(OrderOptions);
@@ -32,6 +36,7 @@ export class MultiSelectComponent {
   loading$ = this.store.select(selectCreateLoading);
 
   choices = signal<string[]>([]);
+  choices$ = toObservable(this.choices);
   selectedPreviewChoices: string[] = [];
 
   private validateDefaultValueMaxChoices = (): ValidatorFn => {
@@ -54,12 +59,40 @@ export class MultiSelectComponent {
   multiselectFieldForm = this.formBuilder.group({
     label: ['', [Validators.required]],
     isRequired: false,
+    type: FieldTypeDefinition.Multiselect,
     defaultValue: ['', [this.validateDefaultValueMaxChoices()]],
     order: [OrderOptions.AlphabeticalAZ],
   });
 
+  ngOnInit(): void {
+    const savedField = this.localStorageService.getItem(
+      'CREATE_FORM_MULTI_SELECT_FIELD'
+    );
+    if (savedField) {
+      this.multiselectFieldForm.patchValue(savedField);
+      this.choices.update(() => savedField.choices);
+    }
+
+    merge(this.choices$, this.multiselectFieldForm.valueChanges).subscribe(
+      () => {
+        this.saveFieldToLocalStorage();
+      }
+    );
+  }
+
+  private saveFieldToLocalStorage() {
+    this.localStorageService.setItem('CREATE_FORM_MULTI_SELECT_FIELD', {
+      ...this.multiselectFieldForm.getRawValue(),
+      choices: this.choices(),
+    });
+  }
+
   get label() {
     return this.multiselectFieldForm.get('label');
+  }
+
+  get type() {
+    return this.multiselectFieldForm.get('type');
   }
 
   get order() {
@@ -86,13 +119,13 @@ export class MultiSelectComponent {
   }
 
   resetForm() {
+    this.choices.update(() => []);
     this.multiselectFieldForm.reset({
       label: '',
       isRequired: false,
       defaultValue: '',
       order: OrderOptions.AlphabeticalAZ,
     });
-    this.choices.update(() => []);
   }
 
   submitForm() {
@@ -112,7 +145,7 @@ export class MultiSelectComponent {
           required: this.isRequired?.getRawValue(),
           order: this.order?.getRawValue(),
           default: this.defaultValue?.getRawValue(),
-          type: FieldTypeDefinition.Multiselect,
+          type: this.type?.getRawValue(),
           choices: this.choices(),
         },
       })

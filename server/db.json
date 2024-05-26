@@ -77,6 +77,29 @@
       "order": "Alphabetical (A-Z)",
       "default": "North America",
       "type": "multi-select"
+    },
+    {
+      "id": "f696",
+      "label": "A",
+      "required": false,
+      "order": "Alphabetical (A-Z)",
+      "default": "",
+      "type": null,
+      "choices": [
+        "A"
+      ]
+    },
+    {
+      "id": "461a",
+      "label": "B",
+      "required": false,
+      "order": "Alphabetical (A-Z)",
+      "default": "",
+      "type": null,
+      "choices": [
+        "A",
+        "B"
+      ]
     }
   ],
   "field-types": [

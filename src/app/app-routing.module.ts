@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PAGE_TITLE_PREFIX } from './core/constants';
+import {
+  FIELDS_BUILDER,
+  HOME,
+  NOT_FOUND,
+  PAGE_TITLE_PREFIX,
+} from './core/constants';
 import { Page404Component } from './core/pages/404/404.component';
 
 const routes: Routes = [
@@ -9,19 +14,19 @@ const routes: Routes = [
     title: `${PAGE_TITLE_PREFIX} CraftDemo`,
     children: [
       {
-        path: 'fields-builder',
+        path: FIELDS_BUILDER,
         loadChildren: () =>
           import('~features/fields-builder/fields-builder.module').then(
             m => m.FieldsBuilderModule
           ),
       },
       {
-        path: 'home',
+        path: HOME,
         loadChildren: () =>
           import('~features/home/home.module').then(m => m.HomeModule),
       },
       {
-        path: 'not-found',
+        path: NOT_FOUND,
         component: Page404Component,
       },
       {
@@ -31,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'not-found',
+        redirectTo: NOT_FOUND,
       },
     ],
   },

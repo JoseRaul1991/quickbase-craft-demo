@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Requirement } from '../../models/requirement';
 import { zoomIn } from '~app/core/animations';
 
@@ -7,6 +7,7 @@ import { zoomIn } from '~app/core/animations';
   templateUrl: './requirement.component.html',
   styleUrls: ['./requirement.component.scss'],
   animations: [zoomIn],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RequirementComponent {
   @Input({ required: true }) requirement!: Requirement;

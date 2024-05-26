@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { CardComponent } from '../card/card.component';
   standalone: true,
   imports: [CommonModule, CardComponent],
   styleUrls: ['./error.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent {
   @Input({ required: true }) error: any;

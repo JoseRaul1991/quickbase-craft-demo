@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { zoomIn } from '~app/core/animations/zoom';
 import { MenuService } from '~app/core/services/menu.service';
 
@@ -7,6 +7,7 @@ import { MenuService } from '~app/core/services/menu.service';
   templateUrl: './menu-button.component.html',
   styleUrls: ['./menu-button.component.scss'],
   animations: [zoomIn],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuButtonComponent {
   private menuService = inject(MenuService);

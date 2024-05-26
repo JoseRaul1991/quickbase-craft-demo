@@ -3,72 +3,76 @@
     <a class="btn-primary" [routerLink]="['create']">Create a field</a>
   </div>
 
+  <section class="flex flex-col relative">
 
-  <div *ngIf="fields$ | async as fields" [@zoomIn]
-    class="not-prose relative bg-slate-50 rounded-xl overflow-hidden shadow border border-slate-300">
-    <div *ngIf="fields.length" class="relative rounded-xl overflow-auto">
-      <div class="border-b overflow-hidden my-8 hidden md:flex flex-col">
-        <table class="border-collapse table-auto w-full text-sm">
-          <thead>
-            <tr>
-              <th>Label</th>
-              <th>Type</th>
-              <th>Is Required</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody class="bg-white">
-            <tr *ngFor="let field of fields" [ngClass]="{
-              'bg-slate-200 animate-pulse': loadingDelete$ | async,
-            }">
-              <td>{{ field.label }}</td>
-              <td>{{ field.type }}</td>
-              <td>
-                <span class="font-semibold" [ngClass]="{
+    <div *ngIf="fields$ | async as fields" [@zoomIn]
+      class="not-prose relative bg-slate-50 rounded-xl overflow-hidden shadow border border-slate-300">
+      <div *ngIf="fields.length" class="relative rounded-xl overflow-auto">
+        <div class="border-b overflow-hidden my-8 hidden md:flex flex-col">
+          <table class="border-collapse table-auto w-full text-sm">
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Type</th>
+                <th>Is Required</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr *ngFor="let field of fields">
+                <td>{{ field.label }}</td>
+                <td>{{ field.type }}</td>
+                <td>
+                  <span class="font-semibold" [ngClass]="{
                 'text-slate-500': field.required,
                 'text-slate-300': !field.required
               }">
-                  {{ field.required | toYesOrNo }}
-                </span>
-              </td>
-              <td class="flex gap-4">
-                <button class="text-sm text-teal-500 hover:text-teal-700" [routerLink]="['update', field.id]">
+                    {{ field.required | toYesOrNo }}
+                  </span>
+                </td>
+                <td class="flex gap-4">
+                  <button class="text-sm text-teal-500 hover:text-teal-700" [routerLink]="['update', field.id]">
+                    Edit
+                  </button>
+                  <button class="text-sm text-orange-500 hover:text-orange-700" (click)="deleteField(field)">
+                    Delete
+                  </button>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex flex-col md:hidden p-6 gap-4">
+          <div *ngFor="let field of fields" class="border-b overflow-hidden">
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex flex-col">
+                <span class="text-slate-500 text-sm">{{ field.type }}</span>
+                <span class="font-semibold">{{ field.label }}</span>
+
+              </div>
+              <div class="flex gap-4">
+                <button class="text-sm bg-teal-600 hover:bg-teal-700 px-2 py-1 rounded text-white"
+                  [routerLink]="['update', field.id]">
                   Edit
                 </button>
-                <button class="text-sm text-orange-500 hover:text-orange-700" (click)="deleteField(field)">
+                <button class="text-sm bg-orange-500 hover:bg-orange-600 px-2 py-1 rounded text-white"
+                  (click)="deleteField(field)">
                   Delete
                 </button>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="flex flex-col md:hidden p-6 gap-4">
-        <div *ngFor="let field of fields" class="border-b overflow-hidden">
-          <div class="flex justify-between items-center mb-4">
-            <div class="flex flex-col">
-              <span class="text-slate-500 text-sm">{{ field.type }}</span>
-              <span class="font-semibold">{{ field.label }}</span>
-
-            </div>
-            <div class="flex gap-4">
-              <button class="text-sm bg-teal-600 hover:bg-teal-700 px-2 py-1 rounded text-white"
-                [routerLink]="['update', field.id]">
-                Edit
-              </button>
-              <button class="text-sm bg-orange-500 hover:bg-orange-600 px-2 py-1 rounded text-white"
-                (click)="deleteField(field)">
-                Delete
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <app-empty-list *ngIf="!fields.length"></app-empty-list>
     </div>
 
-    <app-empty-list *ngIf="!fields.length"></app-empty-list>
-  </div>
+    <app-loading *ngIf="(loading$ | async) || (loadingDelete$ | async)"></app-loading>
+    <app-error *ngIf="error$ | async as error" [error]="error"></app-error>
+  </section>
 
-  <app-loading *ngIf="loading$ | async"></app-loading>
-  <app-error *ngIf="error$ | async as error" [error]="error"></app-error>
+
+
+
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { zoomIn } from '~app/core/animations';
 
 @Component({
@@ -7,5 +7,6 @@ import { zoomIn } from '~app/core/animations';
   standalone: true,
   styleUrls: ['./card.component.scss'],
   animations: [zoomIn],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {}

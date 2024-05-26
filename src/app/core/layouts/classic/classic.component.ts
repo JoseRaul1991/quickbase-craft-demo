@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { expandCollapse } from '~app/core/animations/expand-collapse';
 import { MenuService } from '~app/core/services/menu.service';
 
@@ -7,6 +7,7 @@ import { MenuService } from '~app/core/services/menu.service';
   templateUrl: './classic.component.html',
   styleUrls: ['./classic.component.scss'],
   animations: [expandCollapse],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClassicLayoutComponent {
   private menuService = inject(MenuService);

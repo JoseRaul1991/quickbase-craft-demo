@@ -3,11 +3,15 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, tap } from 'rxjs';
 import { FieldBuilderService } from '~app/features/fields-builder/services/field-builder.service';
 import { FieldsActions } from './actions';
+import { BaseFieldsEffects } from '../effects';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { FIELDS_BUILDER_ROUTE } from '~app/core/constants';
 
 @Injectable()
-export class FieldsEffects {
-  private fieldsService = inject(FieldBuilderService);
-  protected actions$ = inject(Actions);
+export class FieldsEffects extends BaseFieldsEffects {
+  private router = inject(Router);
+  private store = inject(Store);
 
   fetch$ = createEffect(() =>
     this.actions$.pipe(
@@ -75,7 +79,10 @@ export class FieldsEffects {
           FieldsActions.removeSucess,
           FieldsActions.updateSuccess
         ),
-        tap(() => FieldsActions.fetch())
+        tap(() => {
+          this.router.navigate([FIELDS_BUILDER_ROUTE]);
+          this.store.dispatch(FieldsActions.fetch());
+        })
       ),
     { dispatch: false }
   );

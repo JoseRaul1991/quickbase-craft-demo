@@ -1,4 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-checkmark',
@@ -6,5 +10,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
   standalone: true,
   styleUrls: ['./checkmark.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckmarkComponent {}

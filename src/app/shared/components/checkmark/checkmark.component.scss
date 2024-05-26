@@ -38,14 +38,13 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 }
 
 @keyframes scale {
-
   0%,
   100% {
     transform: none;
   }
 
   50% {
-    transform: scale3d(1.1, 1.1, 1);
+    transform: scale(1.1);
   }
 }
 

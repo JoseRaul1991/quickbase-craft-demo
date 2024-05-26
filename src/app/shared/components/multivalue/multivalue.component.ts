@@ -30,6 +30,8 @@ export class MultivalueComponent {
   @Input() maxElements: number = 10;
   @Input() defaultValue?: string;
 
+  private maxLengthPipe = new MaxLengthPipe();
+
   @Output() markAsDefault = new EventEmitter<string>();
 
   currentText = signal('');
@@ -65,17 +67,11 @@ export class MultivalueComponent {
   private onTextChange() {
     if (this.currentText().length > this.maxLength) {
       const newElements = this.currentText().split(',');
-      this.typeDiv.nativeElement.innerHTML = `${newElements.map(e => this.markInRedExtraText(e)).join(',')}`;
+      this.typeDiv.nativeElement.innerHTML = `${newElements.map(e => this.maxLengthPipe.transform(e, this.maxLength)).join(',')}`;
     } else {
       this.typeDiv.nativeElement.innerHTML = `${this.currentText()}`;
     }
     this.setCursorToEnd();
-  }
-
-  private markInRedExtraText(value: string) {
-    const validText = value.slice(0, this.maxLength);
-    const extraText = value.slice(this.maxLength, value.length);
-    return `${validText}<span class="text-red-600">${extraText}</span>`;
   }
 
   private addElement() {
