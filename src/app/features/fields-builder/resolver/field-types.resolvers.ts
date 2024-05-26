@@ -13,7 +13,7 @@ export class FieldTypesResolver {
   private store = inject(Store<FieldsStore>);
   private types = toSignal(this.store.select(selectFieldTypes));
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  resolve() {
     if (this.types()) {
       return;
     }

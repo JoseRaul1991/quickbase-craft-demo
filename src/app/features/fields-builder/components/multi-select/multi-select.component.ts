@@ -12,9 +12,9 @@ import { zoomIn } from '~app/core/animations';
 import { Store } from '@ngrx/store';
 import { FieldsActions } from '../../store/fields/actions';
 import { FieldTypeDefinition } from '../../models/field-types';
-import { selectCreateLoading } from '../../store/fields/selectors';
 import { LocalStorageService } from '~app/core/services/local-storage.service';
-import { concat, concatMap, merge } from 'rxjs';
+import { merge } from 'rxjs';
+import { selectCreateLoading } from '../../store/fields/create/selectors';
 
 @Component({
   selector: 'app-multi-select',

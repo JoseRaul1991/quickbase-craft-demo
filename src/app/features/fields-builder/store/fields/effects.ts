@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, tap } from 'rxjs';
-import { FieldBuilderService } from '~app/features/fields-builder/services/field-builder.service';
 import { FieldsActions } from './actions';
 import { BaseFieldsEffects } from '../effects';
 import { Router } from '@angular/router';

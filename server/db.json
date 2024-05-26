@@ -88,95 +88,98 @@
       "choices": [
         "A"
       ]
-    },
-    {
-      "id": "461a",
-      "label": "B",
-      "required": false,
-      "order": "Alphabetical (A-Z)",
-      "default": "",
-      "type": null,
-      "choices": [
-        "A",
-        "B"
-      ]
     }
   ],
   "field-types": [
     {
       "type": "multi-select",
       "label": "Multi-select",
-      "description": "Select multiple options from a list of choices."
+      "description": "Select multiple options from a list of choices.",
+      "id": "0c3e"
     },
     {
       "type": "single-select",
       "label": "Single-select",
-      "description": "Select one option from a list of choices."
+      "description": "Select one option from a list of choices.",
+      "id": "057c"
     },
     {
       "type": "text",
       "label": "Text",
-      "description": "Single-line text input."
+      "description": "Single-line text input.",
+      "id": "6f28"
     },
     {
       "type": "paragraph",
       "label": "Paragraph",
-      "description": "Multi-line text input."
+      "description": "Multi-line text input.",
+      "id": "3f05"
     },
     {
       "type": "checkbox",
       "label": "Checkbox",
-      "description": "Select multiple options from a list of choices."
+      "description": "Select multiple options from a list of choices.",
+      "id": "ca76"
     },
     {
       "type": "radio",
       "label": "Radio",
-      "description": "Select one option from a list of choices."
+      "description": "Select one option from a list of choices.",
+      "id": "b4aa"
     },
     {
       "type": "file",
       "label": "File",
-      "description": "Upload a file."
+      "description": "Upload a file.",
+      "id": "150b"
     },
     {
       "type": "image",
       "label": "Image",
-      "description": "Upload an image."
+      "description": "Upload an image.",
+      "id": "4471"
     },
     {
       "type": "phone",
       "label": "Phone",
-      "description": "Phone number input."
+      "description": "Phone number input.",
+      "id": "1756"
     },
     {
       "type": "email",
       "label": "Email",
-      "description": "Email address input."
+      "description": "Email address input.",
+      "id": "d5dd"
     },
     {
       "type": "url",
       "label": "URL",
-      "description": "URL input."
+      "description": "URL input.",
+      "id": "fb01"
     },
     {
       "type": "address",
       "label": "Address",
-      "description": "Address input."
+      "description": "Address input.",
+      "id": "1cfd"
     },
     {
       "type": "currency",
       "label": "Currency",
-      "description": "Currency input."
+      "description": "Currency input.",
+      "id": "2c6a"
     },
     {
       "type": "number",
       "label": "Number",
-      "description": "Number input."
+      "description": "Number input.",
+      "id": "4112"
     },
     {
       "type": "date",
       "label": "Date",
-      "description": "Date input."
+      "description": "Date input.",
+      "id": "7b10"
     }
   ]
 }

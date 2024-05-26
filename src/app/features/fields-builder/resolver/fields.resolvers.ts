@@ -13,7 +13,7 @@ export class FieldsResolver {
   private store = inject(Store<FieldsStore>);
   private fields = toSignal(this.store.select(selectFields));
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  resolve() {
     if (this.fields()) {
       return;
     }

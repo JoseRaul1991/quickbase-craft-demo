@@ -1,4 +1,4 @@
-import type { Field, FieldCreate } from './field';
+import type { Field } from './field';
 import { FieldType } from './field-types';
 
 export interface FieldsState {
