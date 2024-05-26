@@ -62,10 +62,9 @@
       </div>
 
       <div class="mt-6 flex items-center gap-x-2 w-full">
-        <button (click)="submitForm()"
-          [disabled]="multiselectFieldForm.invalid || choices().length === 0 || (loading$ | async)" class="btn-primary">
-          <app-loading *ngIf="loading$ | async" [mini]="true" />Save changes
-        </button>
+        <app-submit-button (onClick)="submitForm()" [disabled]="disableSignal" [loading]="loadingSignal">
+          Save changes
+        </app-submit-button>
         <span>Or</span>
         <a type="button" class="font-semibold leading-6 text-red-600" [routerLink]="['..']">Cancel</a>
 

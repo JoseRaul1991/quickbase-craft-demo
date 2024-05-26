@@ -12,5 +12,6 @@ import { zoomIn } from '~app/core/animations/zoom';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoadingComponent {
+  @Input() label = 'Loading...';
   @Input() mini = false;
 }

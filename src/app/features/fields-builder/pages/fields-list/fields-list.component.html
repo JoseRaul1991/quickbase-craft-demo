@@ -68,7 +68,8 @@
       <app-empty-list *ngIf="!fields.length"></app-empty-list>
     </div>
 
-    <app-loading *ngIf="(loading$ | async) || (loadingDelete$ | async)"></app-loading>
+    <app-loading *ngIf="loading$ | async" label="Fetching Fields..."></app-loading>
+    <app-loading *ngIf="loadingDelete$ | async" label="Deleting field..."></app-loading>
     <app-error *ngIf="error$ | async as error" [error]="error"></app-error>
   </section>
 

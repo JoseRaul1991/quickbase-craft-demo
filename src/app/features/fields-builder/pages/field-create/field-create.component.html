@@ -11,7 +11,7 @@
       <app-field-create-card *ngFor="let type of types$ | async" [type]="type" />
     </div>
 
-    <app-loading *ngIf="loading$ | async"></app-loading>
+    <app-loading *ngIf="loading$ | async" label="Fetching types..."></app-loading>
     <app-error *ngIf="error$ | async as error" [error]="error"></app-error>
   </div>
 

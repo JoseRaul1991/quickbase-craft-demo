@@ -1,5 +1,5 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import {
   AbstractControl,
   FormBuilder,
@@ -16,7 +16,7 @@ import { Store } from '@ngrx/store';
 import { FieldsActions } from '../../../store/fields/actions';
 import { FieldTypeDefinition } from '../../../models/field-types';
 import { LocalStorageService } from '~app/core/services/local-storage.service';
-import { merge } from 'rxjs';
+import { map, merge } from 'rxjs';
 import { selectCreateLoading } from '../../../store/fields/create/selectors';
 
 @Component({
@@ -37,6 +37,7 @@ export class MultiSelectComponent implements OnInit {
   readonly MAX_CHOICE_LENGTH = 40;
 
   loading$ = this.store.select(selectCreateLoading);
+  loadingSignal = toSignal(this.loading$);
 
   choices = signal<string[]>([]);
   choices$ = toObservable(this.choices);
@@ -66,6 +67,16 @@ export class MultiSelectComponent implements OnInit {
     defaultValue: ['', [this.validateDefaultValueMaxChoices()]],
     order: [OrderOptions.AlphabeticalAZ],
   });
+
+  formInvalidSignal = toSignal(
+    this.multiselectFieldForm.valueChanges.pipe(
+      map(() => this.multiselectFieldForm.invalid)
+    )
+  );
+
+  disableSignal = computed(
+    () => this.formInvalidSignal() || this.choices().length === 0
+  );
 
   ngOnInit(): void {
     const savedField = this.localStorageService.getItem(
@@ -150,7 +161,7 @@ export class MultiSelectComponent implements OnInit {
           order: this.order?.getRawValue(),
           default: this.defaultValue?.getRawValue(),
           type: this.type?.getRawValue(),
-          choices: this.choices(),
+          choices: [...this.choices()],
         },
       })
     );

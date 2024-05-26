@@ -29,6 +29,7 @@ import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-c
 import { TypeNoSupportedComponent } from './components/type-no-supported/type-no-supported.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SubmitButtonComponent } from '~app/shared/components/submit-button/submit-button.component';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ]),
 
     MultivalueComponent,
+    SubmitButtonComponent,
     NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
