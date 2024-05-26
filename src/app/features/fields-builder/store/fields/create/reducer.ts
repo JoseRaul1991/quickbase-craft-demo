@@ -3,6 +3,12 @@ import { FieldsState } from '~app/features/fields-builder/models/state';
 import { FieldsActions } from '../actions';
 
 export const fieldsCreateReducer = [
+  on(FieldsActions.saveCreate, (state: FieldsState, { data }) => ({
+    ...state,
+    create: {
+      data,
+    },
+  })),
   on(FieldsActions.create, (state: FieldsState) => ({
     ...state,
     create: {

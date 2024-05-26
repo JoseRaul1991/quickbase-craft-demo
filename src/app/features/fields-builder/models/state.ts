@@ -1,4 +1,5 @@
-import type { Field } from './field';
+import { Nullable } from '~app/core/types/nullable';
+import type { Field, FieldCreate } from './field';
 import { FieldType } from './field-types';
 
 export interface FieldsState {
@@ -12,7 +13,8 @@ export interface FieldsState {
     loading: boolean;
     error?: any;
   };
-  create?: {
+  create: {
+    data?: Nullable<FieldCreate>;
     loading?: boolean;
     error?: any;
   };

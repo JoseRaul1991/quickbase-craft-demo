@@ -8,6 +8,7 @@ import { FieldCreateComponent } from './pages/field-create/field-create.componen
 import { FieldsResolver } from './resolver/fields.resolvers';
 import { FieldTypesResolver } from './resolver/field-types.resolvers';
 import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
+import { CreateSavedFormResolver } from './resolver/create-saved-form.resolvers';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
       },
       {
         path: 'create/:type',
+        resolve: {
+          savedForm: CreateSavedFormResolver,
+        },
         component: FieldCreateByTypeComponent,
       },
       {

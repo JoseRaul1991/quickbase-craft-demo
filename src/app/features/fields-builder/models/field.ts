@@ -4,14 +4,14 @@ import { OrderOptions } from './order-options';
 export interface BaseField extends FieldType {
   id: string;
   label: string;
-  required: boolean;
+  isRequired: boolean;
   type: FieldTypeDefinition;
 }
 
 export interface MultiselectField extends BaseField {
   choices: string[];
   order: OrderOptions;
-  default: string;
+  defaultValue: string;
   type: FieldTypeDefinition.Multiselect;
 }
 

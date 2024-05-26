@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { FieldsStore } from '../store/reducer';
 import { FieldsActions } from '../store/fields/actions';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { selectFields } from '../store/fields/fetch/selectors';
+import { selectFields } from '../store/fields/selectors';
 
 @Injectable({
   providedIn: 'root',

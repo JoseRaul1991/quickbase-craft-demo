@@ -24,10 +24,10 @@
                 <td>{{ field.type }}</td>
                 <td>
                   <span class="font-semibold" [ngClass]="{
-                'text-slate-500': field.required,
-                'text-slate-300': !field.required
+                'text-slate-500': field.isRequired,
+                'text-slate-300': !field.isRequired
               }">
-                    {{ field.required | toYesOrNo }}
+                    {{ field.isRequired | toYesOrNo }}
                   </span>
                 </td>
                 <td class="flex gap-4">

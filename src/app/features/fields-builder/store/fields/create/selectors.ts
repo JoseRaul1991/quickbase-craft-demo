@@ -2,6 +2,11 @@ import { createSelector } from '@ngrx/store';
 import { FieldsState } from '~app/features/fields-builder/models/state';
 import { selectAll } from '../../selectors';
 
+export const selectCreateSavedForm = createSelector(
+  selectAll,
+  (state: FieldsState) => state.create?.data
+);
+
 export const selectCreateLoading = createSelector(
   selectAll,
   (state: FieldsState) => state.create?.loading

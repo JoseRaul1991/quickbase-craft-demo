@@ -77,6 +77,21 @@
       "order": "Alphabetical (A-Z)",
       "default": "North America",
       "type": "multi-select"
+    },
+    {
+      "id": "9793",
+      "label": "Test C",
+      "isRequired": true,
+      "order": "by Length (Shortest to Longest)",
+      "defaultValue": "Default",
+      "type": "multi-select",
+      "choices": [
+        "D",
+        "V",
+        "F",
+        "WE",
+        "Default"
+      ]
     }
   ],
   "field-types": [

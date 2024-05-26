@@ -15,8 +15,11 @@ export class FieldsEffects extends BaseFieldsEffects {
   private router = inject(Router);
   private store = inject(Store);
 
+  private fieldsCreateEffects = new FieldsCreateEffects();
+
   fetch$ = new FieldsFetchEffects().fetch$;
-  create$ = new FieldsCreateEffects().create$;
+  create$ = this.fieldsCreateEffects.create$;
+  saveCreate$ = this.fieldsCreateEffects.saveCreate$;
   delete$ = new FieldsDeleteEffects().delete$;
 
   refreshList$ = createEffect(

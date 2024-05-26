@@ -30,7 +30,7 @@
             </div>
           </div>
 
-          <div class="sm:col-span-3 md:col-span-2">
+          <div class="sm:col-span-3 md:col-span-2 relative">
             <label for="default-value" class="field-label">Default Value</label>
             <div class="mt-2">
               <input type="text" name="default-value" id="default-value" class="field-value"
@@ -45,7 +45,7 @@
           <div class="col-span-full">
             <label for="choices" class="field-label">Choices</label>
             <app-multivalue name="choices" id="choices" class="mt-2 flex w-full flex-col" [elements]="choices"
-              [maxElements]="calcMaxChoices()" [maxLength]="MAX_CHOICE_LENGTH"
+              [maxElements]="maxChoicesIfDefaultValueProvided()" [maxLength]="MAX_CHOICE_LENGTH"
               (markAsDefault)="defaultValue?.setValue($event)"
               [defaultValue]="defaultValue?.getRawValue()"></app-multivalue>
           </div>
@@ -73,28 +73,7 @@
       </div>
     </form>
 
-    <div class="hidden md:grid border border-teal-600 border-dashed rounded-lg p-12">
-      <div class="flex flex-col gap-12">
-        <div class="flex flex-col">
-          <h2 class="text-2xl font-semibold leading-7 text-teal-600">Preview</h2>
-          <p class="mt-1 text-sm leading-6 text-gray-600">This is how your element will look like.</p>
-        </div>
-        <div class="flex flex-col">
-          <label for="label" class="field-label" [ngClass]="{
-            '!text-slate-500': !label?.getRawValue(),
-          }">
-            {{ label?.getRawValue() || 'Your label goes here' }} <span *ngIf="isRequired?.getRawValue()" [@zoomIn]
-              class="text-orange-600 text-sm font-mono">(required)</span>
-          </label>
-          <div class="block w-full h-auto mt-1">
-            <ng-select [multiple]="true" [(ngModel)]="selectedPreviewChoices">
-              <ng-option *ngFor="let choice of choices().sort(sortByOrderOptions(order?.getRawValue()))"
-                [value]="choice">{{ choice }}</ng-option>
-            </ng-select>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-preview />
   </div>
 
 </app-card>

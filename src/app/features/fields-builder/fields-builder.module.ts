@@ -30,6 +30,7 @@ import { TypeNoSupportedComponent } from './components/type-no-supported/type-no
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubmitButtonComponent } from '~app/shared/components/submit-button/submit-button.component';
+import { PreviewComponent } from './components/fields/multi-select/preview/preview.component';
 
 @NgModule({
   imports: [
@@ -67,6 +68,7 @@ import { SubmitButtonComponent } from '~app/shared/components/submit-button/subm
     FieldCreateCardComponent,
     FieldCreateByTypeComponent,
     TypeNoSupportedComponent,
+    PreviewComponent,
   ],
 })
 export class FieldsBuilderModule {}
