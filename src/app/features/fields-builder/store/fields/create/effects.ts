@@ -14,7 +14,10 @@ export class FieldsCreateEffects extends BaseFieldsEffects {
       ofType(FieldsActions.create),
       exhaustMap(({ data }) => {
         return this.fieldsService.post(data).pipe(
-          map(() => FieldsActions.createSuccess()),
+          map(() => {
+            this.localStorageService.removeItem(CREATE_FORM_MULTI_SELECT_SUFIX);
+            return FieldsActions.createSuccess();
+          }),
           catchError(error =>
             of(
               FieldsActions.createError({

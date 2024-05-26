@@ -22,7 +22,7 @@
       "label": "Country",
       "isRequired": null,
       "order": "Alphabetical (A-Z)",
-      "defaultValue": "Congo, The Democratic Republic of The",
+      "defaultValue": "American Samoa",
       "type": "multi-select",
       "choices": [
         "Afghanistan",
@@ -75,6 +75,22 @@
         "Congo",
         "Cook Islands",
         "Congo, The Democratic Republic of The"
+      ]
+    },
+    {
+      "id": "93fa",
+      "label": "Demo Multiselect",
+      "isRequired": true,
+      "order": "Alphabetical (A-Z)",
+      "defaultValue": "B2",
+      "type": "multi-select",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "A1",
+        "A2",
+        "B2"
       ]
     }
   ],

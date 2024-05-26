@@ -15,7 +15,12 @@ export class FieldsUpdateEffects extends BaseFieldsEffects {
       ofType(FieldsActions.update),
       exhaustMap(({ data }) => {
         return this.fieldsService.put(data).pipe(
-          map(() => FieldsActions.updateSuccess()),
+          map(() => {
+            this.localStorageService.removeItem(
+              `${UPDATE_FORM_MULTI_SELECT_SUFIX}_${data.type}_${data.id}`
+            );
+            return FieldsActions.updateSuccess();
+          }),
           catchError(error =>
             of(
               FieldsActions.updateError({
