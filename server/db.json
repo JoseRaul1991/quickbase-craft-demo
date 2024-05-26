@@ -78,13 +78,19 @@
       ]
     },
     {
-      "id": "93fa",
-      "label": "Demo Multiselect",
+      "id": "f34b",
+      "label": "Demo Number 1",
       "isRequired": true,
-      "order": "Alphabetical (A-Z)",
-      "defaultValue": "B2",
+      "order": "Reverse Alphabetical (Z-A)",
+      "defaultValue": "Cuba",
       "type": "multi-select",
-      "choices": ["A", "B", "C", "A1", "A2", "B2"]
+      "choices": [
+        "Cuba",
+        "Venezuela",
+        "Bulgaria",
+        "The user will be required to choose at",
+        "option 2"
+      ]
     }
   ],
   "field-types": [
