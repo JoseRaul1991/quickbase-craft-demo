@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { STRETCH_REQUIREMENTS } from '../../constants/stretch-requirements';
+import { STRETCH_REQUIREMENTS } from '../../constants';
 
 @Component({
   selector: 'app-stretch-requirements',

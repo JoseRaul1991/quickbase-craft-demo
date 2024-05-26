@@ -76,21 +76,6 @@
         "Cook Islands",
         "Congo, The Democratic Republic of The"
       ]
-    },
-    {
-      "id": "9793",
-      "label": "Test C",
-      "isRequired": true,
-      "order": "by Length (Shortest to Longest)",
-      "defaultValue": "Default",
-      "type": "multi-select",
-      "choices": [
-        "D",
-        "V",
-        "F",
-        "WE",
-        "Default"
-      ]
     }
   ],
   "field-types": [

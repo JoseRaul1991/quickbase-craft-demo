@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { PAGE_TITLE_PREFIX } from '~app/core/constants';
+import { PAGE_TITLE_PREFIX } from '~core/constants';
 
 const routes: Routes = [
   {

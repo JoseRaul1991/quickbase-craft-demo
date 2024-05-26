@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { zoomIn } from '~app/core/animations/zoom';
-import { MenuService } from '~app/core/services/menu.service';
+import { zoomIn } from '~animations/zoom';
+import { MenuService } from '~core/services';
 
 @Component({
   selector: 'app-menu-button',

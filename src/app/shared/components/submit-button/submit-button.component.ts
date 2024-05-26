@@ -7,8 +7,7 @@ import {
   Signal,
   signal,
 } from '@angular/core';
-import { Observable } from 'rxjs';
-import { LoadingComponent } from '../loading/loading.component';
+import { LoadingComponent } from '~shared/components';
 import { AsyncPipe, CommonModule } from '@angular/common';
 
 @Component({

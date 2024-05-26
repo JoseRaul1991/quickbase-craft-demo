@@ -5,8 +5,8 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { DEFAULT_DELAY } from '../constants/delay';
 import { Observable, delay } from 'rxjs';
+import { DEFAULT_DELAY } from '../constants';
 
 @Injectable({
   providedIn: 'root',

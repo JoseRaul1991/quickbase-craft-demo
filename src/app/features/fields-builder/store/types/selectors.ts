@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { selectAll } from '../selectors';
-import { FieldsState } from '~app/features/fields-builder/models/state';
+import { FieldsState } from '~features/fields-builder/models';
 
 export const selectFieldTypes = createSelector(
   selectAll,

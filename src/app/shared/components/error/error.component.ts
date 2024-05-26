@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CardComponent } from '../card/card.component';
+import { CardComponent } from '~shared/components';
 
 @Component({
   selector: 'app-error',

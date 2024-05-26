@@ -10,8 +10,8 @@ import {
   computed,
   signal,
 } from '@angular/core';
-import { zoomIn, zoomOut } from '~app/core/animations';
-import { MaxLengthPipe } from '~app/shared/pipes/max-length.pipe';
+import { zoomIn, zoomOut } from '~core/animations';
+import { MaxLengthPipe } from '~shared/pipes';
 
 @Component({
   selector: 'app-multivalue',

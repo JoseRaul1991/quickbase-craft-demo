@@ -5,8 +5,8 @@ import {
   HOME,
   NOT_FOUND,
   PAGE_TITLE_PREFIX,
-} from './core/constants';
-import { Page404Component } from './core/pages/404/404.component';
+} from '~core/constants';
+import { Page404Component } from '~core/pages';
 
 const routes: Routes = [
   {

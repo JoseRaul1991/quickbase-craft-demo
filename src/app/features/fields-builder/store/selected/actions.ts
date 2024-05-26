@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Field } from '~app/features/fields-builder/models/field';
+import { Field } from '~features/fields-builder/models';
 
 export const fetch = createAction(
   '[Fields] Fetch Selected Field',

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CORE_REQUIREMENTS } from '../../constants/core-requirements';
+import { CORE_REQUIREMENTS } from '../../constants';
 
 @Component({
   selector: 'app-core-requirements',

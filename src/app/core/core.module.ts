@@ -10,7 +10,7 @@ import { ClassicLayoutComponent } from './layouts';
 import { Page404Component } from './pages';
 import { DEFAULT_DELAY } from './constants/delay';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DelayInterceptor } from './interceptors/delay.interceptor';
+import { DelayInterceptor } from './interceptors';
 
 const exportComponents = [ClassicLayoutComponent, Page404Component];
 

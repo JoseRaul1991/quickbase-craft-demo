@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClassicComponent } from './classic.component';
+import { ClassicLayoutComponent } from './classic.component';
 
-describe('ClassicComponent', () => {
-  let component: ClassicComponent;
-  let fixture: ComponentFixture<ClassicComponent>;
+describe('ClassicLayoutComponent', () => {
+  let component: ClassicLayoutComponent;
+  let fixture: ComponentFixture<ClassicLayoutComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ClassicComponent],
+      declarations: [ClassicLayoutComponent],
     });
-    fixture = TestBed.createComponent(ClassicComponent);
+    fixture = TestBed.createComponent(ClassicLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

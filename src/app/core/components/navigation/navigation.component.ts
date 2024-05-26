@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NAVIGATION } from '~app/core/constants';
+import { NAVIGATION } from '~core/constants';
 
 @Component({
   selector: 'app-navigation',

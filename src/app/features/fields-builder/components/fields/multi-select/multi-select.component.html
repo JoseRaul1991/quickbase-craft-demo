@@ -63,10 +63,10 @@
 
       <div class="mt-6 flex items-center gap-x-2 w-full">
         <app-submit-button (onClick)="submitForm()" [disabled]="disableSignal" [loading]="loadingSignal">
-          Save changes
+          <b class="capitalize">{{ action }} changes </b>
         </app-submit-button>
         <span>Or</span>
-        <a type="button" class="font-semibold leading-6 text-red-600" [routerLink]="['..']">Cancel</a>
+        <a type="button" class="font-semibold leading-6 text-red-600" [routerLink]="[FIELDS_BUILDER_ROUTE]">Cancel</a>
 
         <span class="flex-auto"></span>
         <button type="button" class="flex font-semibold" (click)="resetForm()">Reset</button>

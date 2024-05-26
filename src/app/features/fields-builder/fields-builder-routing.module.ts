@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { PAGE_TITLE_PREFIX } from '~core/constants';
 import { FieldsBuilderComponent } from './fields-builder.component';
-import { PAGE_TITLE_PREFIX } from '~app/core/constants';
-import { FieldsListComponent } from './pages/fields-list/fields-list.component';
-import { FieldEditComponent } from './pages/field-edit/field-edit.component';
-import { FieldCreateComponent } from './pages/field-create/field-create.component';
-import { FieldsResolver } from './resolver/fields.resolvers';
-import { FieldTypesResolver } from './resolver/field-types.resolvers';
-import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
-import { CreateSavedFormResolver } from './resolver/create-saved-form.resolvers';
-import { UpdateSavedFormResolver } from './resolver/update-saved-form.resolvers';
-import { FieldResolver } from './resolver/field.resolvers';
+import {
+  FieldTypesResolver,
+  FieldsResolver,
+  CreateSavedFormResolver,
+  UpdateSavedFormResolver,
+  FieldResolver,
+} from './resolver';
+import {
+  FieldsListComponent,
+  FieldCreateComponent,
+  FieldCreateByTypeComponent,
+  FieldEditComponent,
+} from './pages';
 
 const routes: Routes = [
   {

@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { Nullable } from '~app/core/types/nullable';
-import { Field } from '~app/features/fields-builder/models/field';
+import { Nullable } from '~core/types';
+import { Field } from '~features/fields-builder/models';
 
 export const saveUpdate = createAction(
   '[Fields] Save Update',

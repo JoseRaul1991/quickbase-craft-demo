@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { FieldType } from '../../models/field-types';
+import { FieldType } from '../../models';
 
 export const fetch = createAction('[Fields] Fetch Types');
 export const fetchSuccess = createAction(

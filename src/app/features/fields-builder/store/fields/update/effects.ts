@@ -3,7 +3,7 @@ import { exhaustMap, map, catchError, of, tap } from 'rxjs';
 import { BaseFieldsEffects } from '../../effects';
 import { FieldsActions } from '../actions';
 import { inject } from '@angular/core';
-import { LocalStorageService } from '~app/core/services/local-storage.service';
+import { LocalStorageService } from '~core/services';
 
 export const UPDATE_FORM_MULTI_SELECT_SUFIX = 'UPDATE_FORM_MULTI_SELECT_FIELD';
 

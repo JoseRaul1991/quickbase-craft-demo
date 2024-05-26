@@ -1,5 +1,5 @@
 import { on } from '@ngrx/store';
-import { FieldsState } from '~app/features/fields-builder/models/state';
+import { FieldsState } from '~features/fields-builder/models';
 import { FieldsActions } from '../actions';
 
 export const fieldsUpdateReducer = [

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { zoomIn } from '~app/core/animations';
+import { zoomIn } from '~core/animations';
 
 @Component({
   selector: 'app-404',

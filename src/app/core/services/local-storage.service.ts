@@ -1,6 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { TOKEN_PREFIX } from '../constants/local-storage';
+import { TOKEN_PREFIX } from '~core/constants';
 
 @Injectable({
   providedIn: 'root',

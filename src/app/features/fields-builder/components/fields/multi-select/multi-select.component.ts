@@ -30,6 +30,7 @@ import { OrderOptions } from '~app/features/fields-builder/models/order-options'
 import { selectCreateLoading } from '~app/features/fields-builder/store/fields/selectors';
 import { FormAction } from '~app/features/fields-builder/models/form-action';
 import { maxChoicesIfDefaultValueProvided } from '~app/features/fields-builder/utils/multiselect';
+import { FIELDS_BUILDER_ROUTE } from '~app/core/constants';
 
 @Directive()
 export abstract class BaseMultiSelectComponent {
@@ -43,6 +44,7 @@ export abstract class BaseMultiSelectComponent {
   readonly FormAction = FormAction;
   readonly MAX_CHOICES = MAX_CHOICES;
   readonly MAX_CHOICE_LENGTH = MAX_CHOICE_LENGTH;
+  readonly FIELDS_BUILDER_ROUTE = FIELDS_BUILDER_ROUTE;
 
   loading$ = this.store.select(selectCreateLoading);
   loadingSignal = toSignal(this.loading$);

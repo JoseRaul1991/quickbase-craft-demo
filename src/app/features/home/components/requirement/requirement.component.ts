@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Requirement } from '../../models/requirement';
-import { zoomIn } from '~app/core/animations';
+import { zoomIn } from '~core/animations';
+import { Requirement } from '../../models';
 
 @Component({
   selector: 'app-requirement',

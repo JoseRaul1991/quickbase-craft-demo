@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { expandCollapse } from '~app/core/animations/expand-collapse';
-import { MenuService } from '~app/core/services/menu.service';
+import { expandCollapse } from '~core/animations';
+import { MenuService } from '~core/services';
 
 @Component({
   selector: 'app-classic-layout',
