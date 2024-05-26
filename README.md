@@ -1,27 +1,63 @@
-# Quickbase-Craft-Demo
+# Angular-Craft-Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+This project is a demonstration of using Angular for crafting web applications. It showcases various features and practices commonly used in Angular development.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before you begin, ensure you have met the following requirements:
 
-## Code scaffolding
+- Node.js and npm installed on your machine.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+To install the dependencies, run:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm install
+```
 
-## Running unit tests
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To start the development server, run:
 
-## Running end-to-end tests
+```
+npm run server
+npm run start
+```
+To build the project, run:
+```
+npm run build
+```
+To run tests, execute:
+```
+npm run test
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Scripts
 
-## Further help
+- start : Start the development server.
+- build : Build the project for production.
+- test : Run unit tests.
+- lint : Lint the codebase.
+- server : Start a JSON server with mock data.
+- compodoc:build : Generate documentation using Compodoc.
+- prettier : Format code using Prettier.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Dependencies
+
+- Angular (including various packages for animations, forms, routing, etc.).
+- RxJS for reactive programming.
+- NgRx for state management.
+- JSON Server for mocking API responses.
+
+## Development Dependencies
+
+- Angular CLI for project scaffolding and management.
+- Compodoc for generating documentation.
+- ESLint and Prettier for code linting and formatting.
+- Karma and Jasmine for unit testing.
+- Tailwind CSS for styling.
+- TypeScript for type-checking and compilation.
+
+## License
+This project is licensed under the MIT License.
