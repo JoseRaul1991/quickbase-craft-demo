@@ -30,7 +30,7 @@
       "~shared/*": ["./src/app/shared/*"],
       "~utils/*": ["./src/app/utils/*"],
       "~assets/*": ["./src/assets/*"]
-    },
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

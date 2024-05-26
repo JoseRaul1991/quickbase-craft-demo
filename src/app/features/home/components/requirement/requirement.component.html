@@ -1,13 +1,24 @@
-<div class="relative flex flex-col cursor-pointer" (click)="toggleCheck($event)" (keydown)="toggleCheck($event)">
-  <span class="flex items-center gap-2 text-base font-semibold leading-7 text-orange-600  cursor-pointer">
-    <app-checkmark [@zoomIn] *ngIf="requirement.checked" /> <span class="transition-all ease-in-out" [ngClass]="{
-      'line-through opacity-50 grayscale': requirement.checked
-    }">{{requirement.title}} </span>
+<div
+  class="relative flex flex-col cursor-pointer"
+  (click)="toggleCheck($event)"
+  (keydown)="toggleCheck($event)">
+  <span
+    class="flex items-center gap-2 text-base font-semibold leading-7 text-orange-600 cursor-pointer">
+    <app-checkmark [@zoomIn] *ngIf="requirement.checked" />
+    <span
+      class="transition-all ease-in-out"
+      [ngClass]="{
+        'line-through opacity-50 grayscale': requirement.checked
+      }"
+      >{{ requirement.title }}
+    </span>
   </span>
-  <span class="text-base leading-7 text-gray-600 transition-all ease-in-out" [innerHTML]="requirement.description"
+  <span
+    class="text-base leading-7 text-gray-600 transition-all ease-in-out"
+    [innerHTML]="requirement.description"
     [ngClass]="{
-    'line-through opacity-50 grayscale': requirement.checked
-  }"></span>
+      'line-through opacity-50 grayscale': requirement.checked
+    }"></span>
   <div class="flex flex-col ml-6" *ngIf="requirement.children">
     <div class="flex gap-2" *ngFor="let child of requirement.children">
       - <app-requirement [requirement]="child"></app-requirement>

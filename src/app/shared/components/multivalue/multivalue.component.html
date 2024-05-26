@@ -1,30 +1,48 @@
 <div class="bg-white border border-slate-400 rounded pt-4 pb-10 px-4 relative">
   <ul class="flex flex-wrap gap-2 items-center" (click)="focusInput()">
     <li class="flex w-full gap-2">
-      <div #typeDiv contenteditable="true" (input)="onInput($event)" (keydown)="onKeyDownEnter($event)"
-        class="editable-div" placeholder="Type here..."></div>
+      <div
+        #typeDiv
+        contenteditable="true"
+        (input)="onInput($event)"
+        (keydown)="onKeyDownEnter($event)"
+        class="editable-div"
+        placeholder="Type here..."></div>
     </li>
-    <li [@zoomOut] [@zoomIn] *ngFor="let element of elements(); let i = index" (click)="markAsDefault.emit(element)"
+    <li
+      [@zoomOut]
+      [@zoomIn]
+      *ngFor="let element of elements(); let i = index"
+      (click)="markAsDefault.emit(element)"
       class="bg-slate-200 group text-slate-600 rounded-2xl p-1 hover:bg-slate-500 hover:text-white transition-all ease-in-out flex gap-2 items-start"
       [ngClass]="{
         'cursor-pointer': removable,
         'bg-teal-600 text-white': defaultValue === element
       }">
       <span class="flex-1 ml-2 text-sm">{{ element }}</span>
-      <button *ngIf="removable" class="bg-white rounded-full p-1" (click)="removeElement(i)">
-        <img class="h-3" src="assets/icons/close.svg" alt="close">
+      <button
+        *ngIf="removable"
+        class="bg-white rounded-full p-1"
+        (click)="removeElement(i)">
+        <img class="h-3" src="assets/icons/close.svg" alt="close" />
       </button>
     </li>
   </ul>
-  <span [@zoomIn] class="absolute bottom-2 left-4 text-sm text-teal-600 font-semibold"
+  <span
+    [@zoomIn]
+    class="absolute bottom-2 left-4 text-sm text-teal-600 font-semibold"
     *ngIf="elements().length === maxElements">
     You reach the maximum possibles elements
   </span>
-  <span class="absolute bottom-2 right-4 text-sm text-slate-400">{{elements().length}} / {{maxElements}}</span>
+  <span class="absolute bottom-2 right-4 text-sm text-slate-400"
+    >{{ elements().length }} / {{ maxElements }}</span
+  >
 </div>
 <span [@zoomIn] *ngIf="!maxLengthError()" class="text-sm text-slate-500 mt-1">
-  Press <b class="font-mono">↵ Enter</b> to add elements. You can add severals elements separated by comma.
+  Press <b class="font-mono">↵ Enter</b> to add elements. You can add severals
+  elements separated by comma.
 </span>
-<span [@zoomIn] *ngIf="maxLengthError()" class="text-red-500 text-sm">The max length of one element is
-  <b>{{maxLength}}</b>
+<span [@zoomIn] *ngIf="maxLengthError()" class="text-red-500 text-sm"
+  >The max length of one element is
+  <b>{{ maxLength }}</b>
 </span>

@@ -1,4 +1,7 @@
-<button (click)="onClick.emit()" [disabled]="disabled() || loading()" class="btn-primary">
+<button
+  (click)="onClick.emit()"
+  [disabled]="disabled() || loading()"
+  class="btn-primary">
   <app-loading *ngIf="loading()" [mini]="true" />
   <ng-content />
 </button>

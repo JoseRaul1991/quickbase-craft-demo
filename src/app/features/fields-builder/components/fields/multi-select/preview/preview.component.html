@@ -1,19 +1,32 @@
-<div class="hidden md:grid border border-teal-600 border-dashed rounded-lg p-12">
+<div
+  class="hidden md:grid border border-teal-600 border-dashed rounded-lg p-12">
   <div class="flex flex-col gap-12">
     <div class="flex flex-col">
       <h2 class="text-2xl font-semibold leading-7 text-teal-600">Preview</h2>
-      <p class="mt-1 text-sm leading-6 text-gray-600">This is how your element will look like.</p>
+      <p class="mt-1 text-sm leading-6 text-gray-600">
+        This is how your element will look like.
+      </p>
     </div>
     <div class="flex flex-col">
-      <label for="label" class="field-label" [ngClass]="{
-        '!text-slate-500': !savedForm()?.label,
-      }">
-        {{ savedForm()?.label || 'Your label goes here' }} <span *ngIf="savedForm()?.isRequired" [@zoomIn]
-          class="text-orange-600 text-sm font-mono">(required)</span>
+      <label
+        for="label"
+        class="field-label"
+        [ngClass]="{
+          '!text-slate-500': !savedForm()?.label
+        }">
+        {{ savedForm()?.label || 'Your label goes here' }}
+        <span
+          *ngIf="savedForm()?.isRequired"
+          [@zoomIn]
+          class="text-orange-600 text-sm font-mono"
+          >(required)</span
+        >
       </label>
       <div class="block w-full h-auto mt-1">
         <ng-select [multiple]="true" [(ngModel)]="selectedPreviewChoices">
-          <ng-option *ngFor="let choice of choices()" [value]="choice">{{ choice }}</ng-option>
+          <ng-option *ngFor="let choice of choices()" [value]="choice">{{
+            choice
+          }}</ng-option>
         </ng-select>
       </div>
     </div>

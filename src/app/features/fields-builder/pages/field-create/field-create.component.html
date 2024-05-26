@@ -2,17 +2,22 @@
   <app-back-to />
 
   <div class="rounded-lg bg-slate-200 px-6 py-3">
-    <span class="text-orange-600">For this demo purpose you can only create <b>{{DEMO_FIELD_TYPE}}</b>
-      fields</span>
+    <span class="text-orange-600"
+      >For this demo purpose you can only create
+      <b>{{ DEMO_FIELD_TYPE }}</b> fields</span
+    >
   </div>
 
   <div class="relative flex flex-col">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <app-field-create-card *ngFor="let type of types$ | async" [type]="type" />
+      <app-field-create-card
+        *ngFor="let type of types$ | async"
+        [type]="type" />
     </div>
 
-    <app-loading *ngIf="loading$ | async" label="Fetching types..."></app-loading>
+    <app-loading
+      *ngIf="loading$ | async"
+      label="Fetching types..."></app-loading>
     <app-error *ngIf="error$ | async as error" [error]="error"></app-error>
   </div>
-
 </div>

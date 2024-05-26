@@ -84,14 +84,7 @@
       "order": "Alphabetical (A-Z)",
       "defaultValue": "B2",
       "type": "multi-select",
-      "choices": [
-        "A",
-        "B",
-        "C",
-        "A1",
-        "A2",
-        "B2"
-      ]
+      "choices": ["A", "B", "C", "A1", "A2", "B2"]
     }
   ],
   "field-types": [

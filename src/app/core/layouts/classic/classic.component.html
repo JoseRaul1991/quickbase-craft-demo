@@ -4,8 +4,11 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="flex-shrink-0 flex justify-center items-center gap-2">
-            <img class="h-10" src="/assets/logos/angular.svg" alt="Angular">
-            <img class="h-8" src="/assets/logos/quickbase.svg" alt="Quickbase">
+            <img class="h-10" src="/assets/logos/angular.svg" alt="Angular" />
+            <img
+              class="h-8"
+              src="/assets/logos/quickbase.svg"
+              alt="Quickbase" />
           </div>
           <div class="hidden md:block">
             <app-navigation />
@@ -17,11 +20,14 @@
             <app-menu-button />
           </div>
         </div>
-
       </div>
     </div>
 
-    <div [@expandCollapse] *ngIf="isOpen()" class="md:hidden overflow-hidden" id="mobile-menu">
+    <div
+      [@expandCollapse]
+      *ngIf="isOpen()"
+      class="md:hidden overflow-hidden"
+      id="mobile-menu">
       <app-navigation />
     </div>
   </nav>
@@ -29,5 +35,4 @@
   <div class="h-full overflow-auto">
     <ng-content></ng-content>
   </div>
-
 </div>

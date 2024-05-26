@@ -2,11 +2,14 @@
   <app-card-header>
     <ng-container label>Must have</ng-container>
     <ng-container title>Core Requirements / Tasks</ng-container>
-    Fundamental tasks and requirements that need to be completed as part of the Front End Craft Demo.
+    Fundamental tasks and requirements that need to be completed as part of the
+    Front End Craft Demo.
   </app-card-header>
   <div class="mt-6">
     <div class="flex flex-col gap-y-4">
-      <app-requirement *ngFor="let requirement of coreRequirements" [requirement]="requirement" />
+      <app-requirement
+        *ngFor="let requirement of coreRequirements"
+        [requirement]="requirement" />
     </div>
   </div>
 </app-card>
