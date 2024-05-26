@@ -38,9 +38,9 @@ export class UpdateMultiSelectComponent
   savedForm = toSignal(this.savedForm$);
 
   ngOnInit(): void {
+    this.routeFieldChange();
     this.setSavedForm();
     this.dispatchSaveOnValueChanges();
-    this.routeFieldChange();
   }
 
   private setSavedForm() {
