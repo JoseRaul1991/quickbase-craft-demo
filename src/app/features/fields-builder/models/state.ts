@@ -6,25 +6,25 @@ export interface FieldsState {
   fields: {
     data?: Field[];
     loading: boolean;
-    error?: never;
+    error?: unknown;
   };
   create: {
     data?: Nullable<FieldCreate>;
     loading?: boolean;
-    error?: never;
+    error?: unknown;
   };
   update: {
     data?: Nullable<Field>;
     loading?: boolean;
-    error?: never;
+    error?: unknown;
   };
   delete?: {
     loading?: boolean;
-    error?: never;
+    error?: unknown;
   };
   types: {
     data?: FieldType[];
     loading: boolean;
-    error?: never;
+    error?: unknown;
   };
 }

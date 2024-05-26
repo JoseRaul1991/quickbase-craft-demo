@@ -16,5 +16,5 @@ export const createSuccess = createAction('[Fields] Create Field Success');
 
 export const createError = createAction(
   '[Fields] Create Field Error',
-  props<{ error: never }>()
+  props<{ error: unknown }>()
 );

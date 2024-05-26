@@ -9,5 +9,5 @@ export const removeSucess = createAction('[Fields] Remove Field Success');
 
 export const removeError = createAction(
   '[Fields] Remove Field Error',
-  props<{ error: never }>()
+  props<{ error: unknown }>()
 );

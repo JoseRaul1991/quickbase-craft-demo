@@ -11,5 +11,5 @@ import { CardComponent } from '~shared/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent {
-  @Input({ required: true }) error!: never;
+  @Input({ required: true }) error!: unknown;
 }
