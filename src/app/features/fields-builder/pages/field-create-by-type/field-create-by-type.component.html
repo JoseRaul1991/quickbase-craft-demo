@@ -1,0 +1,12 @@
+<div class="flex flex-col gap-6">
+  <app-back-to />
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="FIELD_TYPES.Multiselect">
+      <app-create-multi-select />
+    </div>
+    <div *ngSwitchDefault>
+      <app-type-no-supported />
+    </div>
+  </div>
+</div>

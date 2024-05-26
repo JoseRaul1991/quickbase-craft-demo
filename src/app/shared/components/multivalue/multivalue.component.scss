@@ -1,0 +1,20 @@
+.editable-div {
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  outline: none;
+}
+
+.editable-div[contenteditable='true']:empty:before {
+  content: attr(placeholder);
+  color: #aaa;
+}
+
+.highlighted-output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.highlight {
+  color: red;
+}

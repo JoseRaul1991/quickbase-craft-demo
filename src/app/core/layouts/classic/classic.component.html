@@ -1,0 +1,38 @@
+<div class="min-h-full h-screen grid grid-rows-[auto_minmax(0,_1fr)]">
+  <nav class="border-b-2 bg-white border-teal-600">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex justify-center items-center gap-2">
+            <img class="h-10" src="/assets/logos/angular.svg" alt="Angular" />
+            <img
+              class="h-8"
+              src="/assets/logos/quickbase.svg"
+              alt="Quickbase" />
+          </div>
+          <div class="hidden md:block">
+            <app-navigation />
+          </div>
+        </div>
+        <div class="ml-4 flex items-center md:ml-6">
+          <app-profile-avatar />
+          <div class="-mr-2 ml-4 flex md:hidden">
+            <app-menu-button />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      [@expandCollapse]
+      *ngIf="isOpen()"
+      class="md:hidden overflow-hidden"
+      id="mobile-menu">
+      <app-navigation />
+    </div>
+  </nav>
+
+  <div class="h-full overflow-auto">
+    <ng-content></ng-content>
+  </div>
+</div>

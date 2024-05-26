@@ -1,0 +1,142 @@
+<app-card>
+  <div class="md:grid grid-cols-2 gap-12">
+    <form class="flex flex-col gap-6" [formGroup]="multiselectFieldForm">
+      <div class="border-b border-gray-900/10 pb-12">
+        <h2 class="text-2xl font-semibold leading-7 text-gray-900">
+          {{ title }}
+        </h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">{{ description }}</p>
+
+        <div class="mt-10 flex flex-col gap-8">
+          <div class="sm:col-span-3 md:col-span-2">
+            <label for="label" class="field-label"
+              >Label
+              <span class="text-orange-600 text-sm font-mono"
+                >(required)</span
+              ></label
+            >
+            <div class="mt-2">
+              <input
+                type="text"
+                name="label"
+                id="label"
+                formControlName="label"
+                class="field-value"
+                required />
+            </div>
+            <span
+              [@zoomIn]
+              class="field-error"
+              *ngIf="label?.dirty && label?.hasError('required')">
+              This field can't be empty
+            </span>
+          </div>
+
+          <div class="col-span-full">
+            <label for="is-required" class="field-label"
+              >A Value is required</label
+            >
+            <div class="relative flex gap-x-3 mt-1">
+              <div class="flex h-6 items-center">
+                <input
+                  id="is-required"
+                  name="is-required"
+                  formControlName="isRequired"
+                  type="checkbox"
+                  class="h-5 w-5 rounded" />
+              </div>
+              <div class="text-sm leading-6">
+                <p class="text-gray-500">
+                  The user will be required to choose at least one value.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 md:col-span-2 relative">
+            <label for="default-value" class="field-label">Default Value</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="default-value"
+                id="default-value"
+                class="field-value"
+                formControlName="defaultValue" />
+            </div>
+            <span
+              class="field-error"
+              [@zoomIn]
+              *ngIf="
+                defaultValue?.dirty && defaultValue?.hasError('invalidChoice')
+              ">
+              Invalid Choice. The amount of choices has reached the limit,
+              please remove one choice from the list or provide here a valid
+              choice from the list.
+            </span>
+          </div>
+
+          <div class="col-span-full">
+            <label for="choices" class="field-label">Choices</label>
+            <app-multivalue
+              name="choices"
+              id="choices"
+              class="mt-2 flex w-full flex-col"
+              [elements]="choices"
+              [maxElements]="maxChoicesIfDefaultValueProvided()"
+              [maxLength]="MAX_CHOICE_LENGTH"
+              (markAsDefault)="defaultValue?.setValue($event)"
+              [defaultValue]="defaultValue?.getRawValue()"></app-multivalue>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label for="order" class="field-label">Order</label>
+            <div class="mt-2">
+              <select
+                id="order"
+                name="order"
+                class="field-value"
+                formControlName="order">
+                <option
+                  *ngFor="let order of ORDER_OPTIONS_VALUES"
+                  [value]="order">
+                  {{ order }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center gap-x-2 w-full">
+        <app-submit-button
+          (buttonClicked)="submitForm()"
+          [disabled]="disableSignal"
+          [loading]="loadingSignal">
+          <b class="capitalize">{{ action }} changes </b>
+        </app-submit-button>
+        <span>Or</span>
+        <a
+          type="button"
+          class="font-semibold leading-6 text-red-600"
+          [routerLink]="[FIELDS_BUILDER_ROUTE]"
+          >Cancel</a
+        >
+
+        <span class="flex-auto"></span>
+        <button type="button" class="flex font-semibold" (click)="resetForm()">
+          Reset
+        </button>
+      </div>
+    </form>
+
+    <ng-container [ngSwitch]="action">
+      <ng-container *ngSwitchCase="FormAction.Create"
+        ><app-preview
+      /></ng-container>
+      <ng-container *ngSwitchCase="FormAction.Update"
+        ><app-preview-update
+      /></ng-container>
+      <ng-container *ngSwitchDefault></ng-container>
+    </ng-container>
+  </div>
+</app-card>

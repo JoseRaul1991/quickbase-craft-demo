@@ -1,0 +1,80 @@
+{
+  "fields": [],
+  "field-types": [
+    {
+      "type": "multi-select",
+      "label": "Multi-select",
+      "description": "Select multiple options from a list of choices."
+    },
+    {
+      "type": "single-select",
+      "label": "Single-select",
+      "description": "Select one option from a list of choices."
+    },
+    {
+      "type": "text",
+      "label": "Text",
+      "description": "Single-line text input."
+    },
+    {
+      "type": "paragraph",
+      "label": "Paragraph",
+      "description": "Multi-line text input."
+    },
+    {
+      "type": "checkbox",
+      "label": "Checkbox",
+      "description": "Select multiple options from a list of choices."
+    },
+    {
+      "type": "radio",
+      "label": "Radio",
+      "description": "Select one option from a list of choices."
+    },
+    {
+      "type": "file",
+      "label": "File",
+      "description": "Upload a file."
+    },
+    {
+      "type": "image",
+      "label": "Image",
+      "description": "Upload an image."
+    },
+    {
+      "type": "phone",
+      "label": "Phone",
+      "description": "Phone number input."
+    },
+    {
+      "type": "email",
+      "label": "Email",
+      "description": "Email address input."
+    },
+    {
+      "type": "url",
+      "label": "URL",
+      "description": "URL input."
+    },
+    {
+      "type": "address",
+      "label": "Address",
+      "description": "Address input."
+    },
+    {
+      "type": "currency",
+      "label": "Currency",
+      "description": "Currency input."
+    },
+    {
+      "type": "number",
+      "label": "Number",
+      "description": "Number input."
+    },
+    {
+      "type": "date",
+      "label": "Date",
+      "description": "Date input."
+    }
+  ]
+}

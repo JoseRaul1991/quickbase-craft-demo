@@ -1,0 +1,1 @@
+export const TOKEN_PREFIX = 'QUICKBASE_CRAFT_DEMO';
