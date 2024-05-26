@@ -1,9 +1,10 @@
 import { createAction, props } from '@ngrx/store';
+import { Nullable } from '~app/core/types/nullable';
 import { Field } from '~app/features/fields-builder/models/field';
 
 export const saveUpdate = createAction(
   '[Fields] Save Update',
-  props<{ data: Field }>()
+  props<{ data: Nullable<Field> }>()
 );
 
 export const update = createAction(

@@ -19,7 +19,7 @@ export interface FieldsState {
     error?: any;
   };
   update: {
-    data?: Field;
+    data?: Nullable<Field>;
     loading?: boolean;
     error?: any;
   };

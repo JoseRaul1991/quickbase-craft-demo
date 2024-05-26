@@ -32,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SubmitButtonComponent } from '~app/shared/components/submit-button/submit-button.component';
 import { PreviewComponent } from './components/fields/multi-select/preview/preview.component';
 import { UpdateMultiSelectComponent } from './components/fields/multi-select/multi-select-update.component';
+import { PreviewUpdateComponent } from './components/fields/multi-select/preview/preview-update.component';
 
 @NgModule({
   imports: [
@@ -71,6 +72,7 @@ import { UpdateMultiSelectComponent } from './components/fields/multi-select/mul
     FieldCreateByTypeComponent,
     TypeNoSupportedComponent,
     PreviewComponent,
+    PreviewUpdateComponent,
   ],
 })
 export class FieldsBuilderModule {}

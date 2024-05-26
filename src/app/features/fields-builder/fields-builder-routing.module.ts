@@ -9,6 +9,8 @@ import { FieldsResolver } from './resolver/fields.resolvers';
 import { FieldTypesResolver } from './resolver/field-types.resolvers';
 import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
 import { CreateSavedFormResolver } from './resolver/create-saved-form.resolvers';
+import { UpdateSavedFormResolver } from './resolver/update-saved-form.resolvers';
+import { FieldResolver } from './resolver/field.resolvers';
 
 const routes: Routes = [
   {
@@ -40,6 +42,10 @@ const routes: Routes = [
       {
         path: 'update/:type/:id',
         component: FieldEditComponent,
+        resolve: {
+          savedForm: UpdateSavedFormResolver,
+          field: FieldResolver,
+        },
       },
     ],
   },

@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { OrderOptions } from '../../../models/order-options';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { zoomIn } from '~app/core/animations';
 import { FieldsActions } from '../../../store/fields/actions';
-import { FieldTypeDefinition } from '../../../models/field-types';
 import { BaseMultiSelectComponent } from './multi-select.component';
+import { ActivatedRoute } from '@angular/router';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
+import { selectUpdateSavedForm } from '~app/features/fields-builder/store/fields/selectors';
+import { Field } from '~app/features/fields-builder/models/field';
+import { FormAction } from '~app/features/fields-builder/models/form-action';
 
 @Component({
   selector: 'app-update-multi-select',
@@ -15,13 +19,28 @@ export class UpdateMultiSelectComponent
   extends BaseMultiSelectComponent
   implements OnInit
 {
+  @Input({ required: true }) id!: string;
+  private activatedRoute = inject(ActivatedRoute);
+
+  readonly action = FormAction.Update;
+
+  fieldChange = this.activatedRoute.data.pipe(
+    takeUntilDestroyed(),
+    map(data => data['field'] as Field)
+  );
+  field = toSignal(this.fieldChange);
+
   readonly title = 'Update Multi-Select Field';
   readonly description =
     'Please fill all required fields to be able to edit this element.';
 
+  savedForm$ = this.store.select(selectUpdateSavedForm);
+  savedForm = toSignal(this.savedForm$);
+
   ngOnInit(): void {
     this.setSavedForm();
     this.dispatchSaveOnValueChanges();
+    this.routeFieldChange();
   }
 
   private setSavedForm() {
@@ -29,14 +48,23 @@ export class UpdateMultiSelectComponent
     if (savedForm) {
       this.multiselectFieldForm.patchValue(savedForm);
       this.choices.update(() => savedForm.choices ?? []);
+    } else {
+      this.resetForm();
     }
+  }
+
+  private routeFieldChange() {
+    this.fieldChange.subscribe(() => {
+      this.resetForm();
+    });
   }
 
   private dispatchSaveOnValueChanges() {
     this.valueChanges.subscribe(() => {
       this.store.dispatch(
-        FieldsActions.saveCreate({
+        FieldsActions.saveUpdate({
           data: {
+            id: this.id,
             ...this.multiselectFieldForm.getRawValue(),
             choices: this.choices(),
           },
@@ -46,13 +74,9 @@ export class UpdateMultiSelectComponent
   }
 
   resetForm() {
-    this.choices.update(() => []);
+    this.choices.update(() => [...(this.field()?.choices || [])]);
     this.multiselectFieldForm.reset({
-      label: '',
-      isRequired: false,
-      defaultValue: '',
-      order: OrderOptions.AlphabeticalAZ,
-      type: FieldTypeDefinition.Multiselect,
+      ...this.field(),
     });
   }
 
@@ -67,8 +91,9 @@ export class UpdateMultiSelectComponent
     }
 
     this.store.dispatch(
-      FieldsActions.create({
+      FieldsActions.update({
         data: {
+          id: this.id,
           label: this.label?.getRawValue(),
           isRequired: this.isRequired?.getRawValue(),
           order: this.order?.getRawValue(),

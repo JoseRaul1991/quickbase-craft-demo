@@ -27,8 +27,8 @@ import {
 } from '~app/features/fields-builder/constants/multiselect';
 import { FieldTypeDefinition } from '~app/features/fields-builder/models/field-types';
 import { OrderOptions } from '~app/features/fields-builder/models/order-options';
-import { selectCreateSavedForm } from '~app/features/fields-builder/store/fields/create/selectors';
 import { selectCreateLoading } from '~app/features/fields-builder/store/fields/selectors';
+import { FormAction } from '~app/features/fields-builder/models/form-action';
 import { maxChoicesIfDefaultValueProvided } from '~app/features/fields-builder/utils/multiselect';
 
 @Directive()
@@ -36,12 +36,14 @@ export abstract class BaseMultiSelectComponent {
   protected formBuilder = inject(FormBuilder);
   protected store = inject(Store);
 
+  abstract action: FormAction;
+
   readonly ORDER_OPTIONS_VALUES = Object.values(OrderOptions);
   readonly OrderOptions = OrderOptions;
+  readonly FormAction = FormAction;
   readonly MAX_CHOICES = MAX_CHOICES;
   readonly MAX_CHOICE_LENGTH = MAX_CHOICE_LENGTH;
 
-  savedForm = toSignal(this.store.select(selectCreateSavedForm));
   loading$ = this.store.select(selectCreateLoading);
   loadingSignal = toSignal(this.loading$);
   choices = signal<string[]>([]);

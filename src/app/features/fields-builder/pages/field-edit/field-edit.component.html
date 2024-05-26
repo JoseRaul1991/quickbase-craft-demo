@@ -3,7 +3,7 @@
 
   <div [ngSwitch]="type">
     <div *ngSwitchCase="FIELD_TYPES.Multiselect">
-      <app-update-multi-select />
+      <app-update-multi-select [id]="id" />
     </div>
     <div *ngSwitchDefault>
       <app-type-no-supported />

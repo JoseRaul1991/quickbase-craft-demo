@@ -31,7 +31,7 @@ const exportComponents = [ClassicLayoutComponent, Page404Component];
     },
     {
       provide: DEFAULT_DELAY,
-      useValue: 1000,
+      useValue: 300,
     },
   ],
 })

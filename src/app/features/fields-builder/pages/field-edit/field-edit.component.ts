@@ -9,6 +9,7 @@ import { FieldTypeDefinition } from '../../models/field-types';
 })
 export class FieldEditComponent {
   @Input({ required: true }) type!: FieldTypeDefinition;
+  @Input({ required: true }) id!: string;
 
   readonly FIELD_TYPES = FieldTypeDefinition;
   FIELDS_BUILDER_ROUTE = FIELDS_BUILDER_ROUTE;

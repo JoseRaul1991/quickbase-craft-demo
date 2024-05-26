@@ -4,6 +4,9 @@ import { zoomIn } from '~app/core/animations';
 import { FieldsActions } from '../../../store/fields/actions';
 import { FieldTypeDefinition } from '../../../models/field-types';
 import { BaseMultiSelectComponent } from './multi-select.component';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { selectCreateSavedForm } from '~app/features/fields-builder/store/fields/selectors';
+import { FormAction } from '~app/features/fields-builder/models/form-action';
 
 @Component({
   selector: 'app-create-multi-select',
@@ -18,6 +21,11 @@ export class CreateMultiSelectComponent
   readonly title = 'Create a Multi Select';
   readonly description =
     'Please fill all required fields to create this element.';
+
+  savedForm$ = this.store.select(selectCreateSavedForm);
+  savedForm = toSignal(this.savedForm$);
+
+  readonly action = FormAction.Create;
 
   ngOnInit(): void {
     this.setSavedForm();

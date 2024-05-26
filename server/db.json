@@ -20,7 +20,10 @@
     {
       "id": "2",
       "label": "Country",
-      "required": true,
+      "isRequired": null,
+      "order": "Alphabetical (A-Z)",
+      "defaultValue": "Congo, The Democratic Republic of The",
+      "type": "multi-select",
       "choices": [
         "Afghanistan",
         "Albania",
@@ -69,14 +72,10 @@
         "Christmas Island",
         "Cocos (Keeling) Islands",
         "Colombia",
-        "Comoros",
         "Congo",
-        "Congo, The Democratic Republic of The",
-        "Cook Islands"
-      ],
-      "order": "Alphabetical (A-Z)",
-      "default": "North America",
-      "type": "multi-select"
+        "Cook Islands",
+        "Congo, The Democratic Republic of The"
+      ]
     },
     {
       "id": "9793",

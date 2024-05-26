@@ -34,7 +34,7 @@ export class FieldsUpdateEffects extends BaseFieldsEffects {
         ofType(FieldsActions.saveUpdate),
         tap(({ data }) => {
           this.localStorageService.setItem(
-            UPDATE_FORM_MULTI_SELECT_SUFIX,
+            `${UPDATE_FORM_MULTI_SELECT_SUFIX}_${data.type}_${data.id}`,
             data
           );
         })

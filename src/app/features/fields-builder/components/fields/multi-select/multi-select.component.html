@@ -73,7 +73,13 @@
       </div>
     </form>
 
-    <app-preview />
+
+    <ng-container [ngSwitch]="action">
+      <ng-container *ngSwitchCase="FormAction.Create"><app-preview /></ng-container>
+      <ng-container *ngSwitchCase="FormAction.Update"><app-preview-update /></ng-container>
+      <ng-container *ngSwitchDefault>output2</ng-container>
+    </ng-container>
+
   </div>
 
 </app-card>
