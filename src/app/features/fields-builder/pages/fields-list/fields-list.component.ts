@@ -4,10 +4,12 @@ import { FieldsStore } from '../../store/reducer';
 import { zoomIn } from '~app/core/animations';
 import { Field } from '../../models/field';
 import {
+  selectDeleteLoading,
   selectFields,
   selectFieldsError,
   selectFieldsLoading,
 } from '../../store/fields/selectors';
+import { FieldsActions } from '../../store/fields/actions';
 
 @Component({
   selector: 'app-fields-list',
@@ -22,9 +24,9 @@ export class FieldsListComponent {
   loading$ = this.store.select(selectFieldsLoading);
   error$ = this.store.select(selectFieldsError);
 
+  loadingDelete$ = this.store.select(selectDeleteLoading);
+
   deleteField(field: Field) {
-    alert(
-      `Not Implemented Yet. But we know you are trying to Delete field: ${field.label}`
-    );
+    this.store.dispatch(FieldsActions.remove({ id: field.id }));
   }
 }

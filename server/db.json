@@ -13,9 +13,9 @@
         "Latin America",
         "Middle East and Africa"
       ],
-      "displayAlpha": true,
+      "order": "Alphabetical (A-Z)",
       "default": "North America",
-      "type": "Multi-select"
+      "type": "multi-select"
     },
     {
       "id": "2",
@@ -74,75 +74,86 @@
         "Congo, The Democratic Republic of The",
         "Cook Islands"
       ],
-      "displayAlpha": true,
+      "order": "Alphabetical (A-Z)",
       "default": "North America",
-      "type": "Multi-select"
+      "type": "multi-select"
     }
   ],
   "field-types": [
     {
       "type": "multi-select",
-      "label": "Multi-select"
+      "label": "Multi-select",
+      "description": "Select multiple options from a list of choices."
     },
     {
       "type": "single-select",
-      "label": "Single-select"
+      "label": "Single-select",
+      "description": "Select one option from a list of choices."
     },
     {
       "type": "text",
-      "label": "Text"
+      "label": "Text",
+      "description": "Single-line text input."
     },
     {
       "type": "paragraph",
-      "label": "Paragraph"
+      "label": "Paragraph",
+      "description": "Multi-line text input."
     },
     {
       "type": "checkbox",
-      "label": "Checkbox"
+      "label": "Checkbox",
+      "description": "Select multiple options from a list of choices."
     },
     {
       "type": "radio",
-      "label": "Radio"
-    },
-    {
-      "type": "dropdown",
-      "label": "Dropdown"
+      "label": "Radio",
+      "description": "Select one option from a list of choices."
     },
     {
       "type": "file",
-      "label": "File"
+      "label": "File",
+      "description": "Upload a file."
     },
     {
       "type": "image",
-      "label": "Image"
+      "label": "Image",
+      "description": "Upload an image."
     },
     {
       "type": "phone",
-      "label": "Phone"
+      "label": "Phone",
+      "description": "Phone number input."
     },
     {
       "type": "email",
-      "label": "Email"
+      "label": "Email",
+      "description": "Email address input."
     },
     {
       "type": "url",
-      "label": "URL"
+      "label": "URL",
+      "description": "URL input."
     },
     {
       "type": "address",
-      "label": "Address"
+      "label": "Address",
+      "description": "Address input."
     },
     {
       "type": "currency",
-      "label": "Currency"
+      "label": "Currency",
+      "description": "Currency input."
     },
     {
       "type": "number",
-      "label": "Number"
+      "label": "Number",
+      "description": "Number input."
     },
     {
       "type": "date",
-      "label": "Date"
+      "label": "Date",
+      "description": "Date input."
     }
   ]
 }

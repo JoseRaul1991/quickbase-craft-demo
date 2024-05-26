@@ -1,8 +1,9 @@
 export enum FieldTypeDefinition {
-  Multiselect = 'Multi-select',
+  Multiselect = 'multi-select',
 }
 
 export interface FieldType {
   label: string;
   type: FieldTypeDefinition;
+  description?: string;
 }

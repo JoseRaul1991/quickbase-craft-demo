@@ -6,7 +6,7 @@ import { BaseFieldsEffects } from '../effects';
 
 @Injectable()
 export class SelectedFieldEffects extends BaseFieldsEffects {
-  fetchField$ = createEffect(() =>
+  fetch$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SelectedFieldActions.fetch),
       exhaustMap(({ id }) => {

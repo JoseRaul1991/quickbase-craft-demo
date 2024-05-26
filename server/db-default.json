@@ -15,7 +15,7 @@
       ],
       "displayAlpha": true,
       "default": "North America",
-      "type": "Multi-select"
+      "type": "multi-select"
     },
     {
       "id": "2",
@@ -76,7 +76,7 @@
       ],
       "displayAlpha": true,
       "default": "North America",
-      "type": "Multi-select"
+      "type": "multi-select"
     }
   ]
 }

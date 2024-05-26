@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Field } from '../models/field';
+import { Field, FieldCreate } from '../models/field';
 import { environment } from '~env/environment';
 
 @Injectable({
@@ -18,11 +18,11 @@ export class FieldBuilderService {
     return this.http.get<Field>(`${this.BASE_URL}/${id}`);
   }
 
-  save(field: Field) {
+  post(field: FieldCreate) {
     return this.http.post<Field>(`${this.BASE_URL}`, field);
   }
 
-  update(field: Field) {
+  put(field: Field) {
     return this.http.put<Field>(`${this.BASE_URL}/${field.id}`, field);
   }
 

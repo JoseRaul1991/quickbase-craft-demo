@@ -2,7 +2,7 @@ import { on } from '@ngrx/store';
 import { FieldTypesActions } from './actions';
 import { FieldsState } from '~app/features/fields-builder/models/state';
 
-export const fieldsReducer = [
+export const typesReducer = [
   on(FieldTypesActions.fetch, (state: FieldsState) => ({
     ...state,
     types: {

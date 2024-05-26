@@ -7,6 +7,7 @@ import { FieldEditComponent } from './pages/field-edit/field-edit.component';
 import { FieldCreateComponent } from './pages/field-create/field-create.component';
 import { FieldsResolver } from './resolver/fields.resolvers';
 import { FieldTypesResolver } from './resolver/field-types.resolvers';
+import { FieldCreateByTypeComponent } from './pages/field-create-by-type/field-create-by-type.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: FieldCreateComponent,
+      },
+      {
+        path: 'create/:type',
+        component: FieldCreateByTypeComponent,
       },
       {
         path: 'update/:id',

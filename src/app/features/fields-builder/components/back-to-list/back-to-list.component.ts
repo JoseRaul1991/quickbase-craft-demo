@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-back-to-list',
+  selector: 'app-back-to',
   templateUrl: './back-to-list.component.html',
-  styleUrls: ['./back-to-list.component.scss']
+  styleUrls: ['./back-to-list.component.scss'],
 })
-export class BackToListComponent {
-
-}
+export class BackToListComponent {}

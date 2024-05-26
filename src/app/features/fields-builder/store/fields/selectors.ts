@@ -16,3 +16,23 @@ export const selectFieldsError = createSelector(
   selectAll,
   (state: FieldsState) => state.fields.error
 );
+
+export const selectCreateLoading = createSelector(
+  selectAll,
+  (state: FieldsState) => state.create?.loading
+);
+
+export const selectCreateError = createSelector(
+  selectAll,
+  (state: FieldsState) => state.create?.error
+);
+
+export const selectDeleteLoading = createSelector(
+  selectAll,
+  (state: FieldsState) => state.delete?.loading
+);
+
+export const selectDeleteError = createSelector(
+  selectAll,
+  (state: FieldsState) => state.delete?.error
+);

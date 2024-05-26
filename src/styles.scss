@@ -3,11 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 .inline-link {
   @apply text-blue-500 underline hover:text-blue-700;
 }
 
 .btn-primary {
-  @apply rounded-md bg-teal-600 px-3.5 py-2.5 text-sm text-white shadow-sm hover:bg-teal-700
+  @apply rounded-md bg-teal-600 px-3.5 py-2.5 text-sm text-white shadow-sm hover:bg-teal-700;
+
+  &:disabled {
+    @apply bg-gray-300 text-gray-700 cursor-not-allowed;
+  }
 }

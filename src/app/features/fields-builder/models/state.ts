@@ -1,4 +1,4 @@
-import type { Field } from './field';
+import type { Field, FieldCreate } from './field';
 import { FieldType } from './field-types';
 
 export interface FieldsState {
@@ -10,6 +10,18 @@ export interface FieldsState {
   selected: {
     data?: Field;
     loading: boolean;
+    error?: any;
+  };
+  create?: {
+    loading?: boolean;
+    error?: any;
+  };
+  update?: {
+    loading?: boolean;
+    error?: any;
+  };
+  delete?: {
+    loading?: boolean;
     error?: any;
   };
   types: {

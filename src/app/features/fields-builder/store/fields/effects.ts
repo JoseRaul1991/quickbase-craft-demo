@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, exhaustMap, map, of } from 'rxjs';
+import { catchError, exhaustMap, map, of, tap } from 'rxjs';
 import { FieldBuilderService } from '~app/features/fields-builder/services/field-builder.service';
 import { FieldsActions } from './actions';
 
@@ -29,5 +29,54 @@ export class FieldsEffects {
         );
       })
     )
+  );
+
+  create$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FieldsActions.create),
+      exhaustMap(({ data }) => {
+        return this.fieldsService.post(data).pipe(
+          map(() => FieldsActions.createSuccess()),
+          catchError(error =>
+            of(
+              FieldsActions.createError({
+                error,
+              })
+            )
+          )
+        );
+      })
+    )
+  );
+
+  delete$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FieldsActions.remove),
+      exhaustMap(({ id }) => {
+        return this.fieldsService.delete(id).pipe(
+          map(() => FieldsActions.removeSucess()),
+          catchError(error =>
+            of(
+              FieldsActions.removeError({
+                error,
+              })
+            )
+          )
+        );
+      })
+    )
+  );
+
+  refreshList$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(
+          FieldsActions.createSuccess,
+          FieldsActions.removeSucess,
+          FieldsActions.updateSuccess
+        ),
+        tap(() => FieldsActions.fetch())
+      ),
+    { dispatch: false }
   );
 }

@@ -1,5 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FieldTypeDefinition } from '../../models/field-types';
+import { Store } from '@ngrx/store';
+import { selectFieldTypes, selectFieldTypesError, selectFieldTypesLoading } from '../../store/types/selectors';
 
 @Component({
   selector: 'app-field-create',
@@ -9,11 +11,9 @@ import { FieldTypeDefinition } from '../../models/field-types';
 export class FieldCreateComponent {
   readonly DEMO_FIELD_TYPE = FieldTypeDefinition.Multiselect;
 
-  elements = signal<string[]>([
-    'choice 1',
-    'choice 2',
-    'choice 3',
-    'choice 4',
-    'choice 5',
-  ]);
+  private store = inject(Store);
+
+  types$ = this.store.select(selectFieldTypes);
+  loading$ = this.store.select(selectFieldTypesLoading);
+  error$ = this.store.select(selectFieldTypesError);
 }

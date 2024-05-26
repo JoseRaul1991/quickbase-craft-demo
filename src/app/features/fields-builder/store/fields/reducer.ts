@@ -25,4 +25,46 @@ export const fieldsReducer = [
       error,
     },
   })),
+  on(FieldsActions.create, (state: FieldsState) => ({
+    ...state,
+    create: {
+      loading: true,
+      error: null,
+    },
+  })),
+  on(FieldsActions.createSuccess, (state: FieldsState) => ({
+    ...state,
+    create: {
+      loading: false,
+      error: null,
+    },
+  })),
+  on(FieldsActions.createError, (state: FieldsState, { error }) => ({
+    ...state,
+    create: {
+      loading: false,
+      error,
+    },
+  })),
+  on(FieldsActions.remove, (state: FieldsState) => ({
+    ...state,
+    delete: {
+      loading: true,
+      error: null,
+    },
+  })),
+  on(FieldsActions.removeSucess, (state: FieldsState) => ({
+    ...state,
+    delete: {
+      loading: false,
+      error: null,
+    },
+  })),
+  on(FieldsActions.removeError, (state: FieldsState, { error }) => ({
+    ...state,
+    delete: {
+      loading: false,
+      error,
+    },
+  })),
 ];

@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import {
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   ViewChild,
   WritableSignal,
   computed,
@@ -26,17 +28,20 @@ export class MultivalueComponent {
   @Input() removable = true;
   @Input() maxLength: number = 20;
   @Input() maxElements: number = 10;
+  @Input() defaultValue?: string;
+
+  @Output() markAsDefault = new EventEmitter<string>();
 
   currentText = signal('');
-  maxLengthError = computed(() => this.currentText().length > this.maxLength);
+  maxLengthError = computed(() =>
+    this.currentText()
+      .split(',')
+      .some(e => e.length > this.maxLength)
+  );
   maxElementsError = computed(() => this.elements().length >= this.maxElements);
 
   removeElement(index: number) {
     this.elements.update(elements => elements.filter((_, i) => i !== index));
-  }
-
-  clearElements() {
-    this.elements.update(() => []);
   }
 
   focusInput() {
@@ -59,16 +64,18 @@ export class MultivalueComponent {
 
   private onTextChange() {
     if (this.currentText().length > this.maxLength) {
-      const validText = this.currentText().slice(0, this.maxLength);
-      const extraText = this.currentText().slice(
-        this.maxLength,
-        this.currentText().length
-      );
-      this.typeDiv.nativeElement.innerHTML = `${validText}<span class="text-red-600">${extraText}</span>`;
+      const newElements = this.currentText().split(',');
+      this.typeDiv.nativeElement.innerHTML = `${newElements.map(e => this.markInRedExtraText(e)).join(',')}`;
     } else {
       this.typeDiv.nativeElement.innerHTML = `${this.currentText()}`;
     }
     this.setCursorToEnd();
+  }
+
+  private markInRedExtraText(value: string) {
+    const validText = value.slice(0, this.maxLength);
+    const extraText = value.slice(this.maxLength, value.length);
+    return `${validText}<span class="text-red-600">${extraText}</span>`;
   }
 
   private addElement() {
@@ -86,8 +93,18 @@ export class MultivalueComponent {
       return;
     }
     if (value) {
-      const setOfElements = new Set([...this.elements(), ...value.split(',')]);
-      this.elements.set([...setOfElements]);
+      const setOfElements = new Set([
+        ...this.elements(),
+        ...value.split(',').map(e => e.trim()),
+      ]);
+      const currentElements = [...setOfElements];
+      if (currentElements.length > this.maxElements) {
+        currentElements.splice(
+          this.maxElements,
+          currentElements.length - this.maxElements
+        );
+      }
+      this.elements.set(currentElements);
       this.clearInput();
     }
   }
