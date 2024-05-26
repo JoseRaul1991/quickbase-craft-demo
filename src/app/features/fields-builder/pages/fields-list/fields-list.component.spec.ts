@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FieldsListComponent } from './fields-list.component';
+import { provideMockStore } from '@ngrx/store/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FieldsListComponent', () => {
   let component: FieldsListComponent;
@@ -8,7 +10,9 @@ describe('FieldsListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FieldsListComponent]
+      imports: [RouterTestingModule],
+      declarations: [FieldsListComponent],
+      providers: [provideMockStore({})],
     });
     fixture = TestBed.createComponent(FieldsListComponent);
     component = fixture.componentInstance;

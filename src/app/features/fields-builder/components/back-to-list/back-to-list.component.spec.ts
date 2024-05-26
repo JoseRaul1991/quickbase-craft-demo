@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BackToListComponent } from './back-to-list.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BackToListComponent', () => {
   let component: BackToListComponent;
@@ -8,7 +9,8 @@ describe('BackToListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BackToListComponent]
+      declarations: [BackToListComponent],
+      imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(BackToListComponent);
     component = fixture.componentInstance;

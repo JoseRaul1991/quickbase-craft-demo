@@ -8,7 +8,7 @@ describe('PageHeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PageHeaderComponent]
+      imports: [PageHeaderComponent],
     });
     fixture = TestBed.createComponent(PageHeaderComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmptyListComponent } from './empty-list.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('EmptyListComponent', () => {
   let component: EmptyListComponent;
@@ -8,7 +9,8 @@ describe('EmptyListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EmptyListComponent]
+      declarations: [EmptyListComponent],
+      imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(EmptyListComponent);
     component = fixture.componentInstance;

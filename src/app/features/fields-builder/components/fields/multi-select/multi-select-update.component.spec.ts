@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateMultiSelectComponent } from './multi-select-create.component';
+import { UpdateMultiSelectComponent } from './multi-select-update.component';
 import { provideMockStore } from '@ngrx/store/testing';
 import {
   CardComponent,
@@ -9,14 +9,14 @@ import {
 } from '~app/shared/components';
 import { FieldsState } from '~app/features/fields-builder/models';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
-import { PreviewComponent } from './preview/preview.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { PreviewUpdateComponent } from './preview/preview-update.component';
 
-describe('CreateMultiSelectComponent', () => {
-  let component: CreateMultiSelectComponent;
-  let fixture: ComponentFixture<CreateMultiSelectComponent>;
+describe('UpdateMultiSelectComponent', () => {
+  let component: UpdateMultiSelectComponent;
+  let fixture: ComponentFixture<UpdateMultiSelectComponent>;
 
   const initialState: FieldsState = {
     fields: {
@@ -31,7 +31,7 @@ describe('CreateMultiSelectComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CreateMultiSelectComponent, PreviewComponent],
+      declarations: [UpdateMultiSelectComponent, PreviewUpdateComponent],
       imports: [
         CardComponent,
         MultivalueComponent,
@@ -44,7 +44,7 @@ describe('CreateMultiSelectComponent', () => {
       ],
       providers: [provideMockStore({ initialState })],
     });
-    fixture = TestBed.createComponent(CreateMultiSelectComponent);
+    fixture = TestBed.createComponent(UpdateMultiSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

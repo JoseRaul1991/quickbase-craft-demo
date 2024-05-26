@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoadingComponent } from './loading.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoadingComponent', () => {
   let component: LoadingComponent;
@@ -8,7 +9,7 @@ describe('LoadingComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoadingComponent]
+      imports: [LoadingComponent, BrowserAnimationsModule],
     });
     fixture = TestBed.createComponent(LoadingComponent);
     component = fixture.componentInstance;
