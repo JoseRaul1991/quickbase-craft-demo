@@ -109,7 +109,7 @@
 
       <div class="mt-6 flex items-center gap-x-2 w-full">
         <app-submit-button
-          (onClick)="submitForm()"
+          (buttonClicked)="submitForm()"
           [disabled]="disableSignal"
           [loading]="loadingSignal">
           <b class="capitalize">{{ action }} changes </b>

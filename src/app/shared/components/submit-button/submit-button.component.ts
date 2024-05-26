@@ -22,5 +22,5 @@ export class SubmitButtonComponent {
   @Input() disabled: Signal<boolean | null> = signal(false);
   @Input() loading: Signal<boolean | undefined> = signal(false);
 
-  @Output() onClick = new EventEmitter<void>();
+  @Output() buttonClicked = new EventEmitter<void>();
 }

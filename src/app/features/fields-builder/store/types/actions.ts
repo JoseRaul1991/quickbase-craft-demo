@@ -8,7 +8,7 @@ export const fetchSuccess = createAction(
 );
 export const fetchError = createAction(
   '[Fields] Fetch Types Error',
-  props<{ error: any }>()
+  props<{ error: never }>()
 );
 
 export const FieldTypesActions = {

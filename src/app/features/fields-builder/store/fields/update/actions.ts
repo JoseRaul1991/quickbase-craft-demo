@@ -16,5 +16,5 @@ export const updateSuccess = createAction('[Fields] Update Field Success');
 
 export const updateError = createAction(
   '[Fields] Update Field Error',
-  props<{ error: any }>()
+  props<{ error: never }>()
 );

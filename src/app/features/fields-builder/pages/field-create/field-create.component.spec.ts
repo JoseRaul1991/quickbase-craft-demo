@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FieldCreateComponent } from './field-create.component';
 import { provideMockStore } from '@ngrx/store/testing';
-import { FieldsBuilderModule } from '../../fields-builder.module';
 import { BackToListComponent } from '../../components';
 import { RouterTestingModule } from '@angular/router/testing';
 

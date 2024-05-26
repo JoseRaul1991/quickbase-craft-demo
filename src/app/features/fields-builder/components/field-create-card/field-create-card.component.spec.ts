@@ -2,8 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FieldCreateCardComponent } from './field-create-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FieldType, FieldTypeDefinition, FieldsState } from '../../models';
-import { provideMockStore } from '@ngrx/store/testing';
+import { FieldType, FieldTypeDefinition } from '../../models';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FieldCreateCardComponent', () => {

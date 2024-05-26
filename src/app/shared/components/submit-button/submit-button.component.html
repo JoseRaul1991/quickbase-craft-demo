@@ -1,5 +1,5 @@
 <button
-  (click)="onClick.emit()"
+  (click)="buttonClicked.emit()"
   [disabled]="disabled() || loading()"
   class="btn-primary">
   <app-loading *ngIf="loading()" [mini]="true" />

@@ -8,7 +8,7 @@ import { TOKEN_PREFIX } from '~core/constants';
 export class LocalStorageService {
   constructor(@Inject(PLATFORM_ID) private platformId: string) {}
 
-  setItem(key: string, value: any) {
+  setItem(key: string, value: never) {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(`${TOKEN_PREFIX}_${key}`, JSON.stringify(value));
     }

@@ -8,5 +8,5 @@ export const fetchSuccess = createAction(
 );
 export const fetchError = createAction(
   '[Fields] Fetch Fields Error',
-  props<{ error: any }>()
+  props<{ error: never }>()
 );

@@ -26,8 +26,8 @@ export class MultivalueComponent {
   @Input({ required: true }) elements!: WritableSignal<string[]>;
   @Input() placeholder = 'Type here...';
   @Input() removable = true;
-  @Input() maxLength: number = 20;
-  @Input() maxElements: number = 10;
+  @Input() maxLength = 20;
+  @Input() maxElements = 10;
   @Input() defaultValue?: string;
 
   private maxLengthPipe = new MaxLengthPipe();
