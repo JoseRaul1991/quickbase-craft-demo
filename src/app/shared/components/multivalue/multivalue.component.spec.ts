@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { MaxLengthPipe } from '~app/shared/pipes';
 import { signal } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { By } from '@angular/platform-browser';
 
 describe('MultivalueComponent', () => {
   let component: MultivalueComponent;
