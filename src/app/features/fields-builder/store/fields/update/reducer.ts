@@ -28,4 +28,11 @@ export const fieldsUpdateReducer = [
       error,
     },
   })),
+  on(FieldsActions.cleanUpdate, (state: FieldsState) => ({
+    ...state,
+    update: {
+      loading: false,
+      error: null,
+    },
+  })),
 ];

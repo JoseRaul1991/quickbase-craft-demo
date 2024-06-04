@@ -3,7 +3,7 @@
     {
       "id": "1",
       "label": "Sales region",
-      "required": false,
+      "isRequired": false,
       "choices": [
         "Asia",
         "Australia",
@@ -20,7 +20,7 @@
     {
       "id": "2",
       "label": "Country",
-      "isRequired": null,
+      "isRequired": true,
       "order": "Alphabetical (A-Z)",
       "defaultValue": "Congo, The Democratic Republic of The",
       "type": "multi-select",

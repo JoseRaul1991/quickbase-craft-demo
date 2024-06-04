@@ -3,7 +3,10 @@
     {
       "id": "1",
       "label": "Sales region",
-      "required": false,
+      "isRequired": false,
+      "order": "Alphabetical (A-Z)",
+      "defaultValue": "Australia",
+      "type": "multi-select",
       "choices": [
         "Asia",
         "Australia",
@@ -12,17 +15,14 @@
         "Eastern Europe",
         "Latin America",
         "Middle East and Africa"
-      ],
-      "order": "Alphabetical (A-Z)",
-      "default": "North America",
-      "type": "multi-select"
+      ]
     },
     {
       "id": "2",
       "label": "Country",
-      "isRequired": null,
+      "isRequired": true,
       "order": "Alphabetical (A-Z)",
-      "defaultValue": "American Samoa",
+      "defaultValue": "British Indian Ocean Territory",
       "type": "multi-select",
       "choices": [
         "Afghanistan",
@@ -78,18 +78,16 @@
       ]
     },
     {
-      "id": "f34b",
-      "label": "Demo Number 1",
+      "id": "c4ea",
+      "label": "Something",
       "isRequired": true,
-      "order": "Reverse Alphabetical (Z-A)",
-      "defaultValue": "Cuba",
+      "order": "Alphabetical (A-Z)",
+      "defaultValue": "My Default Value",
       "type": "multi-select",
       "choices": [
-        "Cuba",
-        "Venezuela",
-        "Bulgaria",
-        "The user will be required to choose at",
-        "option 2"
+        "Option 1",
+        "Option 2",
+        "My Default Value"
       ]
     }
   ],

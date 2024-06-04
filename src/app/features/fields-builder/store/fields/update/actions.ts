@@ -18,3 +18,5 @@ export const updateError = createAction(
   '[Fields] Update Field Error',
   props<{ error: unknown }>()
 );
+
+export const cleanUpdate = createAction('[Fields] Clean Update');

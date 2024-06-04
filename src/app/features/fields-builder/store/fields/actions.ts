@@ -11,6 +11,7 @@ import {
   updateSuccess,
   updateError,
   saveUpdate,
+  cleanUpdate,
 } from './update/actions';
 
 export const FieldsActions = {
@@ -25,6 +26,7 @@ export const FieldsActions = {
   update,
   updateSuccess,
   updateError,
+  cleanUpdate,
   remove,
   removeSucess,
   removeError,

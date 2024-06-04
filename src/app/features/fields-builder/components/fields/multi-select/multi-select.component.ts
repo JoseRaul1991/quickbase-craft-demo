@@ -1,6 +1,7 @@
 import {
   Directive,
   HostListener,
+  OnDestroy,
   computed,
   inject,
   signal,
@@ -29,9 +30,10 @@ import { selectCreateLoading } from '~app/features/fields-builder/store/fields/s
 import { FormAction } from '~app/features/fields-builder/models/form-action';
 import { maxChoicesIfDefaultValueProvided } from '~app/features/fields-builder/utils/multiselect';
 import { FIELDS_BUILDER_ROUTE } from '~app/core/constants';
+import { FieldsActions } from '~app/features/fields-builder/store/fields/actions';
 
 @Directive()
-export abstract class BaseMultiSelectComponent {
+export abstract class BaseMultiSelectComponent implements OnDestroy {
   protected formBuilder = inject(FormBuilder);
   protected store = inject(Store);
 
@@ -115,5 +117,9 @@ export abstract class BaseMultiSelectComponent {
   @HostListener('keydown.enter', ['$event'])
   onEnter(event: KeyboardEvent): void {
     event.preventDefault();
+  }
+
+  ngOnDestroy(): void {
+    this.store.dispatch(FieldsActions.cleanUpdate());
   }
 }
